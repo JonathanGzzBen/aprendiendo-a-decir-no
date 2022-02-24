@@ -4,7 +4,7 @@ import { View, Text, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity,
 const Inicio = () => {
     return(
         <View>
-            <Text>Inicio</Text>
+            
         </View>
     )
 }

@@ -15,7 +15,7 @@ const Login = (props) =>
     const handleLogin= () => {
         signInWithEmailAndPassword(auth, email, password)
         .then(() => {
-            props.navigation.navigate('Inicio');
+            props.navigation.navigate('Inicio', {user: email});
         })
         .catch(error => {
             Alert.alert('Credenciales incorrectas')
@@ -56,7 +56,7 @@ const Login = (props) =>
 
             <View style = {styles.register}>
 
-                <Text style = {styles.registerText}>¿No tienes cuenta? <Text style = {styles.registerLink} onPress={() => Alert.alert('Pantalla de registro')}>Regístrate</Text> </Text> 
+                <Text style = {styles.registerText}>¿No tienes cuenta? <Text style = {styles.registerLink} onPress={() => props.navigation.navigate('Register')}>Regístrate</Text> </Text> 
                 
             </View>
             </View>
