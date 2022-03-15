@@ -6,8 +6,18 @@ import Login from './screens/Login'
 import Inicio from './screens/Inicio';
 import Register from './screens/Register';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createStackNavigator()
+const Drawer = createDrawerNavigator();
+
+function MyDrawer() {
+  return (
+      <Drawer.Navigator initialRouteName='Inicio' drawerContent={(props)=> <Menu {...props}/>}>
+        <Drawer.Screen name="Inicio" component={Inicio} options={{title: 'Inicio', headerStyle: {backgroundColor: '#713C6A'}, headerTintColor: 'white'}} />
+      </Drawer.Navigator>
+  );
+}
 
 function MyStack()
 {
@@ -15,11 +25,10 @@ function MyStack()
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} options={{title: 'Iniciar sesión', headerStyle: {backgroundColor: '#713C6A'}, headerTintColor: 'white' }} />
       <Stack.Screen name="Register" component={Register} options={{title: 'Registrarse', headerStyle: {backgroundColor: '#713C6A'}, headerTintColor: 'white' }} />
-      <Stack.Screen name="Inicio" component={Inicio} options={{title: 'Inicio', headerStyle: {backgroundColor: '#713C6A'}, headerTintColor: 'white'}}></Stack.Screen>
+      <Stack.Screen name="Inicio" component={MyDrawer} options={{headerShown: false}}/>
     </Stack.Navigator>
   )
 }
-
 
 export default function App() 
 {
@@ -28,6 +37,19 @@ export default function App()
       <MyStack/>
     </NavigationContainer>
   );
+}
+
+function Menu(props)
+{
+  return(
+    <View>
+
+      <View>
+        
+      </View>
+
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
