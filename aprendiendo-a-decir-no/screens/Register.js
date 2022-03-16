@@ -25,7 +25,7 @@ const Register = (props) =>
         }
         else
         {
-            setDoc(doc(db, "users", email), 
+            setDoc(doc(db, "users", email.toLowerCase()), 
             {
               name: KidName, 
               age: KidAge, 

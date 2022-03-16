@@ -9,9 +9,17 @@ import Hombres from './screens/Hombres';
 import Contacto from './screens/Contacto';
 import Configuracion from './screens/Configuracion';
 import { createDrawerNavigator, DrawerItemList } from '@react-navigation/drawer';
+import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import {firebaseConfig} from './database/firebase'
+import { getFirestore, collection, addDoc, getDoc, doc} from 'firebase/firestore';
+import { useState } from 'react';
 
 const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator();
+const app = initializeApp(firebaseConfig)
+const auth = getAuth(app);
+const db = getFirestore();
 
 export default function App() 
 {
@@ -20,6 +28,64 @@ export default function App()
       <MyStack/>
     </NavigationContainer>
   );
+}
+
+function Name()
+{
+  const [user, setUser] = useState({
+    name: '', 
+    email: '',
+    age: ''
+  })
+
+  const actualUser = auth.currentUser
+  getUserById(actualUser.email)
+
+  async function getUserById(id){
+
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    const user = docSnap.data();
+    if (docSnap.exists()) {
+      setUser({
+        ...user
+      })
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }
+
+  return user.name
+}
+
+function Age()
+{
+  const [user, setUser] = useState({
+    name: '', 
+    email: '',
+    age: ''
+  })
+
+  const actualUser = auth.currentUser
+  getUserById(actualUser.email)
+
+  async function getUserById(id){
+
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    const user = docSnap.data();
+    if (docSnap.exists()) {
+      setUser({
+        ...user
+      })
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }
+
+  return user.age
 }
 
 function MyStack()
@@ -56,8 +122,8 @@ function Menu(props)
             <Image style = {s.userImagen} source={require('./src/img/user.png')}/>
           </View>
           <View style = {s.userNombre}>
-            <Text style = {s.userTitulo}>User</Text>
-            <Text style = {s.userSubTitulo}>8 años</Text>
+            <Text style = {s.userTitulo}>{Name()}</Text>
+            <Text style = {s.userSubTitulo}>{Age()+" años"}</Text>
           </View>
         </TouchableOpacity>
       </View>
