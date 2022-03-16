@@ -13,7 +13,8 @@ import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import {firebaseConfig} from './database/firebase'
 import { getFirestore, collection, addDoc, getDoc, doc} from 'firebase/firestore';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { async } from '@firebase/util';
 
 const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator();
@@ -39,14 +40,13 @@ function Name()
   })
 
   const actualUser = auth.currentUser
-  getUserById(actualUser.email)
 
-  async function getUserById(id){
-
+  const getUserById = async (id) => {
     const docRef = doc(db, "users", id);
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
+      console.log("HOla")
       setUser({
         ...user
       })
@@ -54,7 +54,11 @@ function Name()
       // doc.data() will be undefined in this case
       console.log("No such document!");
     }
-  }
+  };
+
+  useEffect(() => {
+    getUserById(actualUser.email);
+  }, [])
 
   return user.name
 }
@@ -68,14 +72,13 @@ function Age()
   })
 
   const actualUser = auth.currentUser
-  getUserById(actualUser.email)
 
-  async function getUserById(id){
-
+  const getUserById = async (id) => {
     const docRef = doc(db, "users", id);
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
+      console.log("HOla")
       setUser({
         ...user
       })
@@ -83,7 +86,11 @@ function Age()
       // doc.data() will be undefined in this case
       console.log("No such document!");
     }
-  }
+  };
+
+  useEffect(() => {
+    getUserById(actualUser.email);
+  }, [])
 
   return user.age
 }
@@ -114,6 +121,7 @@ function MyDrawer() {
 
 function Menu(props)
 {
+
   return(
     <View style = {s.container}>
       <View style = {s.bgContainer}>
@@ -122,7 +130,7 @@ function Menu(props)
             <Image style = {s.userImagen} source={require('./src/img/user.png')}/>
           </View>
           <View style = {s.userNombre}>
-            <Text style = {s.userTitulo}>{Name()}</Text>
+            <Text style = {s.userTitulo} >{Name()}</Text>
             <Text style = {s.userSubTitulo}>{Age()+" años"}</Text>
           </View>
         </TouchableOpacity>
