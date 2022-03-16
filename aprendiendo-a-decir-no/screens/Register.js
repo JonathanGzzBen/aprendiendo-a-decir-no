@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity,
 import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import {firebaseConfig} from '../database/firebase'
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, setDoc, doc} from 'firebase/firestore';
 
 const Register = (props) => 
 {
@@ -25,11 +25,11 @@ const Register = (props) =>
         }
         else
         {
-            addDoc(collection(db, "users"), 
+            setDoc(doc(db, "users", email), 
             {
-                name: KidName, 
-                age: KidAge, 
-                email: email
+              name: KidName, 
+              age: KidAge, 
+              email: email
             });
             createUserWithEmailAndPassword(auth, email, password)
             .then(() => {
