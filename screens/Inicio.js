@@ -13,7 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Inicio = ({navigation}) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
         <View style={styles.container}>
           <Text style={styles.title}>Aprendiendo a decir que no</Text>
           <TouchableOpacity
@@ -31,7 +31,8 @@ const Inicio = ({navigation}) => {
             <Text style={styles.caption}>Introduccion</Text>
           <TouchableOpacity
             style={styles.buttonImage}
-            activeOpacity={0.5}>
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate('Pubertad', {name: 'Pubertad'})}>
             <Image
               source={{
                 uri:
@@ -43,7 +44,8 @@ const Inicio = ({navigation}) => {
             <Text style={styles.caption}>Pubertad</Text>
             <TouchableOpacity
             style={styles.buttonImage}
-            activeOpacity={0.5}>
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate('Sexualidad', {name: 'Sexualidad'})}>
             <Image
               source={{
                 uri:
@@ -54,7 +56,7 @@ const Inicio = ({navigation}) => {
           </TouchableOpacity>
             <Text style={styles.caption}>Sexualidad</Text>
         </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -71,6 +73,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    textAlign:'center',
   },
   buttonImage: {
     height: 100,
@@ -90,9 +93,9 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   buttonImageIconStyle: {
-    height: "90%",
-    width: "100%",
-    resizeMode: "center",
+    height: '100%',
+    width: '100%',
+    resizeMode:'contain',
   },
 });
 

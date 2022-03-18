@@ -33,6 +33,8 @@ import {
 import { useEffect, useState } from "react";
 import { async } from "@firebase/util";
 import Introduccion from "./screens/Introduccion";
+import Pubertad from "./screens/Pubertad";
+import Sexualidad from "./screens/Sexualidad";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -141,6 +143,24 @@ function MyStack() {
         component={Introduccion}
         options={{
           title: "Introducción",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Pubertad"
+        component={Pubertad}
+        options={{
+          title: "Pubertad",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Sexualidad"
+        component={Sexualidad}
+        options={{
+          title: "Sexualidad",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}

@@ -10,14 +10,10 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
 
 const Introduccion = () => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
         <Text style={styles.title}>Aprendiendo a decir que NO</Text>
         <Image
@@ -53,7 +49,7 @@ const Introduccion = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
@@ -67,9 +63,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
   },
+  safeContainer:{
+    flex: 1,
+    backgroundColor:'white'
+  },
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    textAlign: 'center',
   },
   row: {
     flexDirection: "row",
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     borderWidth: 2,
     borderColor: "#713C6A",
+    justifyContent: 'center',
     backgroundColor: "rgba(248, 236, 223, 0.3)",
     borderRadius: 15,
     marginTop: 20,
@@ -97,15 +99,15 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   buttonImageIconStyle: {
-    height: "32%",
-    width: "32%",
-    resizeMode: "center",
-    marginLeft: 33,
-    marginTop: 15,
-    marginBottom: 15,
+    height: 32,
+    width: 32,
+    resizeMode: "contain",
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 10,
   },
   buttonTextStyle: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: "500",
     textAlign: "center",
   },
