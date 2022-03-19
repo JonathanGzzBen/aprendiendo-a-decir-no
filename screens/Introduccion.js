@@ -17,9 +17,7 @@ const Introduccion = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Aprendiendo a decir que NO</Text>
         <Image
-          source={{
-            uri: "https://i.imgur.com/GZTfodE.jpg",
-          }}
+          source={require("../src/img/pulgar_abajo.jpg")}
           style={styles.mainImageStyle}
         />
         <Text style={styles.textStyle}>
@@ -31,18 +29,14 @@ const Introduccion = () => {
         <View style={styles.row}>
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
             <Image
-              source={{
-                uri: "https://i.imgur.com/YaCEcWv.png",
-              }}
+              source={require("../src/img/masculino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Cuidados en hombres</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
             <Image
-              source={{
-                uri: "https://i.imgur.com/gqDgeMp.png",
-              }}
+              source={require("../src/img/femenino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Cuidados en mujeres</Text>
@@ -63,14 +57,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     textAlign: "center",
   },
-  safeContainer:{
+  safeContainer: {
     flex: 1,
-    backgroundColor:'white'
+    backgroundColor: "white",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    textAlign: 'center',
+    textAlign: "center",
   },
   row: {
     flexDirection: "row",
@@ -83,7 +77,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     borderWidth: 2,
     borderColor: "#713C6A",
-    justifyContent: 'center',
+    justifyContent: "center",
     backgroundColor: "rgba(248, 236, 223, 0.3)",
     borderRadius: 15,
     marginTop: 20,
@@ -102,7 +96,7 @@ const styles = StyleSheet.create({
     height: 32,
     width: 32,
     resizeMode: "contain",
-    alignSelf: 'center',
+    alignSelf: "center",
     marginTop: 10,
     marginBottom: 10,
   },
@@ -112,8 +106,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   mainImageStyle: {
-    minWidth: 90,
-    minHeight: 165,
+    width: '50%',
+    height: '60%',
     margin: 15,
   },
 });

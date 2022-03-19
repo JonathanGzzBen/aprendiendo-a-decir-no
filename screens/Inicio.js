@@ -21,10 +21,7 @@ const Inicio = ({navigation}) => {
             activeOpacity={0.5}
             onPress={() => navigation.navigate('Introduccion', {name: 'Introduccion'})}>
             <Image
-              source={{
-                uri:
-                  'https://i.imgur.com/oIQfSXx.jpg',
-              }}
+              source={require("../src/img/ninios_feed.jpg")}
               style={styles.buttonImageIconStyle}
             />
           </TouchableOpacity>
@@ -34,10 +31,7 @@ const Inicio = ({navigation}) => {
             activeOpacity={0.5}
             onPress={() => navigation.navigate('Pubertad', {name: 'Pubertad'})}>
             <Image
-              source={{
-                uri:
-                  'https://i.imgur.com/lziFiyz.jpg',
-              }}
+              source={require("../src/img/pubertad_feed.jpg")}
               style={styles.buttonImageIconStyle}
             />
           </TouchableOpacity>
@@ -47,10 +41,7 @@ const Inicio = ({navigation}) => {
             activeOpacity={0.5}
             onPress={() => navigation.navigate('Sexualidad', {name: 'Sexualidad'})}>
             <Image
-              source={{
-                uri:
-                  'https://i.imgur.com/A8P5tj4.jpg',
-              }}
+              source={require("../src/img/sexualidad_feed.jpg")}
               style={styles.buttonImageIconStyle}
             />
           </TouchableOpacity>
@@ -76,7 +67,7 @@ const styles = StyleSheet.create({
     textAlign:'center',
   },
   buttonImage: {
-    height: 100,
+    height: 130,
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",

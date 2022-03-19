@@ -165,6 +165,24 @@ function MyStack() {
           headerTintColor: "white",
         }}
       />
+      <Stack.Screen
+        name="Mujeres"
+        component={Mujeres}
+        options={{
+          title: "Mujeres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Hombres"
+        component={Hombres}
+        options={{
+          title: "Hombres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
     </Stack.Navigator>
   );
 }

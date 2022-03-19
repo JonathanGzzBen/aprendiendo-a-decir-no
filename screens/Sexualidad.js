@@ -17,9 +17,7 @@ const Sexualidad = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Sexualidad consentida</Text>
         <Image
-          source={{
-            uri: "https://i.imgur.com/iQlUbLp.png",
-          }}
+          source={require("../src/img/sexualidad.png")}
           style={styles.mainImageStyle}
         />
         <Text style={styles.textStyle}>
@@ -31,18 +29,14 @@ const Sexualidad = () => {
         <View style={styles.row}>
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
             <Image
-              source={{
-                uri: "https://i.imgur.com/YaCEcWv.png",
-              }}
+              source={require("../src/img/masculino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Sexualidad en hombres</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
             <Image
-              source={{
-                uri: "https://i.imgur.com/gqDgeMp.png",
-              }}
+              source={require("../src/img/femenino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Sexualidad en mujeres</Text>
@@ -111,8 +105,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
       },
   mainImageStyle: {
-    minWidth: 300,
-    minHeight: 155,
+    width: '100%',
+    height: '60%',
     margin: 15,
   },
 });

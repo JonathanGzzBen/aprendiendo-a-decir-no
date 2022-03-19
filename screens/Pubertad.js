@@ -17,9 +17,7 @@ const Pubertad = () => {
       <View style={styles.container}>
         <Text style={styles.title}>¿Qué es la pubertad?</Text>
         <Image
-          source={{
-            uri: "https://i.imgur.com/silQUzf.png",
-          }}
+          source={require("../src/img/pubertad.png")}
           style={styles.mainImageStyle}
         />
         <Text style={styles.textStyle}>
@@ -31,18 +29,14 @@ const Pubertad = () => {
         <View style={styles.row}>
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
             <Image
-              source={{
-                uri: "https://i.imgur.com/YaCEcWv.png",
-              }}
+              source={require("../src/img/masculino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Pubertad en hombres</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
             <Image
-              source={{
-                uri: "https://i.imgur.com/gqDgeMp.png",
-              }}
+              source={require("../src/img/femenino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Pubertad en mujeres</Text>
@@ -54,65 +48,65 @@ const Pubertad = () => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "white",
-        marginTop: 10,
-        margin: 10,
-        padding: 30,
-        alignItems: "center",
-        textAlign: "center",
-      },
-      safeContainer:{
-        flex: 1,
-        backgroundColor:'white'
-      },
-      title: {
-        fontSize: 24,
-        fontWeight: "bold",
-      },
-      row: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-      },
-      buttonStyle: {
-        height: 110,
-        width: 100,
-        flex: 0.5,
-        alignContent: "center",
-        borderWidth: 2,
-        borderColor: "#713C6A",
-        justifyContent: 'center',
-        backgroundColor: "rgba(248, 236, 223, 0.3)",
-        borderRadius: 15,
-        marginTop: 20,
-        margin: 10,
-      },
-      textStyle: {
-        fontSize: 14,
-        flex: 0.2,
-        fontStyle: "normal",
-        paddingTop: 15,
-        letterSpacing: 1.3,
-        textAlign: "justify",
-        width: "100%",
-      },
-      buttonImageIconStyle: {
-        height: 32,
-        width: 32,
-        resizeMode: "contain",
-        alignSelf: 'center',
-        marginTop: 10,
-        marginBottom: 10,
-      },
-      buttonTextStyle: {
-        fontSize: 13,
-        fontWeight: "500",
-        textAlign: "center",
-      },
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+    marginTop: 10,
+    margin: 10,
+    padding: 30,
+    alignItems: "center",
+    textAlign: "center",
+  },
+  safeContainer: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  buttonStyle: {
+    height: 110,
+    width: 100,
+    flex: 0.5,
+    alignContent: "center",
+    borderWidth: 2,
+    borderColor: "#713C6A",
+    justifyContent: "center",
+    backgroundColor: "rgba(248, 236, 223, 0.3)",
+    borderRadius: 15,
+    marginTop: 20,
+    margin: 10,
+  },
+  textStyle: {
+    fontSize: 14,
+    flex: 0.2,
+    fontStyle: "normal",
+    paddingTop: 15,
+    letterSpacing: 1.3,
+    textAlign: "justify",
+    width: "100%",
+  },
+  buttonImageIconStyle: {
+    height: 32,
+    width: 32,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  buttonTextStyle: {
+    fontSize: 13,
+    fontWeight: "500",
+    textAlign: "center",
+  },
   mainImageStyle: {
-    minWidth: 300,
-    minHeight: 150,
+    width: '100%',
+    height: '60%',
     margin: 15,
   },
 });
