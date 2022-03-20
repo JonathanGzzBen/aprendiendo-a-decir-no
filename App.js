@@ -35,6 +35,7 @@ import { async } from "@firebase/util";
 import Introduccion from "./screens/Introduccion";
 import Pubertad from "./screens/Pubertad";
 import Sexualidad from "./screens/Sexualidad";
+import Perfil from "./screens/Perfil";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -179,6 +180,15 @@ function MyStack() {
         component={Hombres}
         options={{
           title: "Hombres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Perfil"
+        component={Perfil}
+        options={{
+          title: "Perfil",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}
