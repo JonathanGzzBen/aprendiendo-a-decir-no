@@ -105,8 +105,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   mainImageStyle: {
-    width: '100%',
-    height: '60%',
+    width: 350,
+    height: 150,
     margin: 15,
   },
 });
