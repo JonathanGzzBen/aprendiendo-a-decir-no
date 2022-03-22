@@ -71,12 +71,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   mainImageStyle: {
-    width: '100%',
-    height: '42%',
-    margin: 30,
+    width: 300,
+    height: 140,
+    margin: 15,
   },
   buttonStyle: {
-    height: '32%',
+    height: 140,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",

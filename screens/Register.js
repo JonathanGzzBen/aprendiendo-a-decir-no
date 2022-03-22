@@ -29,7 +29,9 @@ const Register = (props) =>
             {
               name: KidName, 
               age: KidAge, 
-              email: email
+              email: email, 
+              tutorName: TutorName, 
+              tutorAge: TutorAge
             });
             createUserWithEmailAndPassword(auth, email, password)
             .then(() => {

@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   mainImageStyle: {
-    width: '100%',
-    height: '50%',
+    width: 350,
+    height: 150,
     margin: 15,
   },
   buttonStyle: {

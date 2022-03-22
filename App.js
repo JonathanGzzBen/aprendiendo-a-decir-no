@@ -56,6 +56,8 @@ function Name() {
     name: "",
     email: "",
     age: "",
+    tutorName: "", 
+    tutorAge: ""
   });
 
   const actualUser = auth.currentUser;
@@ -87,6 +89,8 @@ function Age() {
     name: "",
     email: "",
     age: "",
+    tutorName: "", 
+    tutorAge: ""
   });
 
   const actualUser = auth.currentUser;

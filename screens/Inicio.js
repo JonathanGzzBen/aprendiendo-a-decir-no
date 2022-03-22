@@ -78,13 +78,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 30,
   },
+  
   caption: {
     fontSize: 16,
     fontStyle: "normal",
     paddingTop: 15,
   },
   buttonImageIconStyle: {
-    height: '100%',
+    height: 120,
     width: '100%',
     resizeMode:'contain',
   },

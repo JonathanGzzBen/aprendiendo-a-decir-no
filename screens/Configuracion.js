@@ -34,7 +34,8 @@ const Configuracion = ({navigation}) => {
         />
         <Text style={styles.title}>{Name()}</Text>
         <View style={styles.divider}></View>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}
+        onPress={() => navigation.navigate('Perfil', {name: 'Perfil'})}>
           <Image
             source={require("../src/img/ninos.png")}
             style={styles.buttonImageIconStyle}
