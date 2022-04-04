@@ -44,6 +44,8 @@ import Ereccion from "./screens/Hombres/Ereccion";
 import Humedos from "./screens/Hombres/Humedos";
 import Anticonceptivos_H from "./screens/Hombres/Anticonceptivos_H";
 import CambiosFisicos_M from "./screens/Mujeres/CambiosFisicos_M";
+import Menstruacion from "./screens/Mujeres/Menstruacion";
+import Higiene_M from "./screens/Mujeres/Higiene_M";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -192,6 +194,24 @@ function MyStack() {
         component={CambiosFisicos_M}
         options={{
           title: "Cambios Fisicos en Mujeres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Menstruacion"
+        component={Menstruacion}
+        options={{
+          title: "Menstruación",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Higiene_M"
+        component={Higiene_M}
+        options={{
+          title: "Higiene",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}
