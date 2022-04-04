@@ -10,7 +10,7 @@ import {
   Alert,
 } from "react-native";
 
-const Hombres = () => {
+const Hombres = ({ navigation }) => {
   return (
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
@@ -19,7 +19,15 @@ const Hombres = () => {
           style={styles.mainImageStyle}
         />
         <Text style={styles.title}>Información sobre el hombre</Text>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() =>
+            navigation.navigate("CambiosFisicos_H", {
+              name: "CambiosFisicos_H",
+            })
+          }
+        >
           <Image
             source={require("../src/img/ninio.png")}
             style={styles.buttonImageIconStyle}
@@ -33,7 +41,15 @@ const Hombres = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() =>
+            navigation.navigate("Anticonceptivos_H", {
+              name: "Anticonceptivos_H",
+            })
+          }
+        >
           <Image
             source={require("../src/img/anti_hombres.png")}
             style={styles.buttonImageIconStyle}

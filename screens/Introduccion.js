@@ -11,7 +11,7 @@ import {
   Alert,
 } from "react-native";
 
-const Introduccion = () => {
+const Introduccion = ({navigation}) => {
   return (
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
@@ -27,14 +27,24 @@ const Introduccion = () => {
           no quiere.
         </Text>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            activeOpacity={0.5}
+            onPress={() =>
+              navigation.navigate("Hombres", { name: "Hombres" })
+            }
+          >
             <Image
               source={require("../src/img/masculino.png")}
               style={styles.buttonImageIconStyle}
             />
             <Text style={styles.buttonTextStyle}>Cuidados en hombres</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate("Mujeres", { name: "Mujeres" })}
+          >
             <Image
               source={require("../src/img/femenino.png")}
               style={styles.buttonImageIconStyle}
@@ -45,7 +55,7 @@ const Introduccion = () => {
       </View>
     </ScrollView>
   );
-};
+}; 
 
 const styles = StyleSheet.create({
   container: {

@@ -14,6 +14,7 @@ import Inicio from "./screens/Inicio";
 import Register from "./screens/Register";
 import Mujeres from "./screens/Mujeres";
 import Hombres from "./screens/Hombres";
+import Valores from "./screens/Valores";
 import Contacto from "./screens/Contacto";
 import Configuracion from "./screens/Configuracion";
 import {
@@ -36,6 +37,13 @@ import Introduccion from "./screens/Introduccion";
 import Pubertad from "./screens/Pubertad";
 import Sexualidad from "./screens/Sexualidad";
 import Perfil from "./screens/Perfil";
+
+import CambiosFisicos_H from "./screens/Hombres/CambiosFisicos_H";
+import Acne from "./screens/Acne";
+import Ereccion from "./screens/Hombres/Ereccion";
+import Humedos from "./screens/Hombres/Humedos";
+import Anticonceptivos_H from "./screens/Hombres/Anticonceptivos_H";
+import CambiosFisicos_M from "./screens/Mujeres/CambiosFisicos_M";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -180,10 +188,64 @@ function MyStack() {
         }}
       />
       <Stack.Screen
+        name="CambiosFisicos_M"
+        component={CambiosFisicos_M}
+        options={{
+          title: "Cambios Fisicos en Mujeres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
         name="Hombres"
         component={Hombres}
         options={{
           title: "Hombres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="CambiosFisicos_H"
+        component={CambiosFisicos_H}
+        options={{
+          title: "Cambios Fisicos en Hombres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Acne"
+        component={Acne}
+        options={{
+          title: "Acné",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Ereccion"
+        component={Ereccion}
+        options={{
+          title: "Erecciones",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Humedos"
+        component={Humedos}
+        options={{
+          title: "Sueños húmedos",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Anticonceptivos_H"
+        component={Anticonceptivos_H}
+        options={{
+          title: "Metodos anticonceptivos para Hombres",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}
@@ -230,6 +292,15 @@ function MyDrawer() {
         component={Hombres}
         options={{
           title: "Hombres",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Drawer.Screen
+        name="Valores"
+        component={Valores}
+        options={{
+          title: "Valores",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}

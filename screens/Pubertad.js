@@ -11,7 +11,7 @@ import {
   Alert,
 } from "react-native";
 
-const Pubertad = () => {
+const Pubertad = ({navigation}) => {
   return (
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
@@ -27,7 +27,15 @@ const Pubertad = () => {
           físicos y afecta a niños y niñas de manera distinta.
         </Text>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            activeOpacity={0.5}
+            onPress={() =>
+              navigation.navigate("CambiosFisicos_H", {
+                name: "CambiosFisicos_H",
+              })
+            }
+          >
             <Image
               source={require("../src/img/masculino.png")}
               style={styles.buttonImageIconStyle}

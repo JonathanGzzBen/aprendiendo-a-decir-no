@@ -27,7 +27,7 @@ const Inicio = ({navigation}) => {
           </TouchableOpacity>
             <Text style={styles.caption}>Introduccion</Text>
           <TouchableOpacity
-            style={styles.buttonImage}
+            style={styles.buttonImage} 
             activeOpacity={0.5}
             onPress={() => navigation.navigate('Pubertad', {name: 'Pubertad'})}>
             <Image
