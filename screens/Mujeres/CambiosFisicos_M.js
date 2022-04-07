@@ -4,14 +4,21 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  TextInput,
   TouchableOpacity,
-  Alert,
-  FlatList,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const CambiosFisicos_M = ({ navigation }) => {
+  const [info, setInfo] = useState([
+    { info: "Tus senos crecerán y desarrollarán.", key: 1 },
+    {
+      info: "Tus caderas se ensancharán y tu cuerpo puede tornarse más curvilíneo.",
+      key: 2,
+    },
+    { info: "Comienzas a tener tu período/regla.", key: 3 },
+    { info: "Tu labia puede cambiar de color y agrandarse.", key: 4 },
+  ]);
+
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={styles.container}>
@@ -25,22 +32,13 @@ const CambiosFisicos_M = ({ navigation }) => {
           la pubertad son:{"\n"}
         </Text>
         <View style={styles.listContainer}>
-          <FlatList
-            data={[
-              { key: "Tus senos crecerán y desarrollarán."},
-              {
-                key: "Tus caderas se ensancharán y tu cuerpo puede tornarse más curvilíneo.",
-              },
-              { key: "Comienzas a tener tu período/regla." },
-              { key: "Tu labia puede cambiar de color y agrandarse." },
-            ]}
-            renderItem={({ item }) => (
-              <Text style={styles.item}>
-                {"🟣" + " "}
-                {item.key}
-              </Text>
-            )}
-          />
+          {info.map((item) => {
+            return (
+              <View key={item.key} style={styles.listContainer}>
+                <Text style={styles.item}>🟣{item.info}</Text>
+              </View>
+            );
+          })}
         </View>
         <Text style={styles.subtitle}>
           Otros cambios significativos son:{"\n"}
@@ -48,9 +46,7 @@ const CambiosFisicos_M = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buttonImage}
           activeOpacity={0.5}
-          onPress={() =>
-            navigation.navigate("Acne", { name: "Acne" })
-          }
+          onPress={() => navigation.navigate("Acne", { name: "Acne" })}
         >
           <Image
             source={require("../../src/img/Mujer/acne-mujer.jpg")}
@@ -61,7 +57,9 @@ const CambiosFisicos_M = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buttonImage}
           activeOpacity={0.5}
-          onPress={() => navigation.navigate("Menstruacion", { name: "Menstruacion" })}
+          onPress={() =>
+            navigation.navigate("Menstruacion", { name: "Menstruacion" })
+          }
         >
           <Image
             source={require("../../src/img/Mujer/menstruacion-feed.png")}
@@ -72,7 +70,9 @@ const CambiosFisicos_M = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buttonImage}
           activeOpacity={0.5}
-          onPress={() => navigation.navigate("Higiene_M", { name: "Higiene_M" })}
+          onPress={() =>
+            navigation.navigate("Higiene_M", { name: "Higiene_M" })
+          }
         >
           <Image
             source={require("../../src/img/Mujer/higiene-feed.png")}
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 10,
   },
-
   caption: {
     fontSize: 16,
     fontStyle: "normal",
@@ -149,6 +148,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
+    marginBottom: 10,
     width: "100%",
   },
 });

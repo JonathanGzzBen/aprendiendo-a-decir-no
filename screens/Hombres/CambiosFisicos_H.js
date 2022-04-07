@@ -4,14 +4,24 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  TextInput,
   TouchableOpacity,
-  Alert,
-  FlatList,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const CambiosFisicos_H = ({ navigation }) => {
+  const [info, setInfo] = useState([
+    { info: "Su voz se torna más grave y profunda.", key: 1 },
+    {
+      info: "Su nuez de Adán (protuberancia en tu garganta) puede crecer y ser más visible.",
+      key: 2,
+    },
+    { info: "Su pene y testículos se agrandan.", key: 3 },
+    { info: "Puede crecer vello en su cara, pecho y espalda.", key: 4 },
+    { info: "Sus hombros y pecho se ensanchan.", key: 5 },
+    { info: "Pueden tener algo de hinchazón en las tetillas durante la pubertad.", key: 6 },
+    { info: "Puede parecer como el comienzo del crecimiento de los pechos, pero generalmente esto pasa pronto.", key: 7 },
+  ]);
+
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       <View style={styles.container}>
@@ -25,29 +35,13 @@ const CambiosFisicos_H = ({ navigation }) => {
           la pubertad son:{"\n"}
         </Text>
         <View style={styles.listContainer}>
-          <FlatList
-            data={[
-              { key: "Su voz se torna más grave y profunda." },
-              {
-                key: "Su nuez de Adán (protuberancia en tu garganta) puede crecer y ser más visible.",
-              },
-              { key: "Su pene y testículos se agrandan." },
-              { key: "Puede crecer vello en su cara, pecho y espalda." },
-              { key: "Sus hombros y pecho se ensanchan." },
-              {
-                key: "Pueden tener algo de hinchazón en las tetillas durante la pubertad.",
-              },
-              {
-                key: "Puede parecer como el comienzo del crecimiento de los pechos pero generalmente esto pasa pronto.",
-              },
-            ]}
-            renderItem={({ item }) => (
-              <Text style={styles.item}>
-                {"🔵" + " "}
-                {item.key}
-              </Text>
-            )}
-          />
+        {info.map((item) => {
+            return (
+              <View key={item.key} style={styles.listContainer}>
+                <Text style={styles.item}>🔵{item.info}</Text>
+              </View>
+            );
+          })}
         </View>
         <Text style={styles.subtitle}>
           Otros cambios significativos son:{"\n"}
@@ -158,6 +152,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
+    marginBottom: 10,
     width: '100%',
   },
 });

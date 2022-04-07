@@ -15,7 +15,7 @@ import Inicio from "./screens/Inicio";
 import Register from "./screens/Register";
 import Mujeres from "./screens/Mujeres";
 import Hombres from "./screens/Hombres";
-import Valores from "./screens/Valores";
+import Inclusion from "./screens/Inclusion";
 import Contacto from "./screens/Contacto";
 import Configuracion from "./screens/Configuracion";
 
@@ -330,10 +330,10 @@ function MyDrawer() {
         }}
       />
       <Drawer.Screen
-        name="Valores"
-        component={Valores}
+        name="Inclusion"
+        component={Inclusion}
         options={{
-          title: "Valores",
+          title: "Inclusión",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}

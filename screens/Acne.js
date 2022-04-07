@@ -1,18 +1,26 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  FlatList,
-} from "react-native";
-import React from "react";
+import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
 
 const Acne = () => {
+  const [info, setInfo] = useState([
+    {
+      info: "Lávate la cara con suavidad una o dos veces al día con agua tibia y un jabón suave o una crema limpiadora para la piel.",
+      key: 1,
+    },
+    {
+      info: "No te frotes la cara. De hecho, eso te puede empeorar el acné e irritarte la piel.",
+      key: 2,
+    },
+    {
+      info: "Si usas maquillaje, asegúrate de lavarte la cara para eliminarlo por completo al final de cada día. (Recuerda que no importa el sexo o género, todos pueden usar maquillaje).",
+      key: 3,
+    },
+    {
+      info: "Lávate la cara después de hacer ejercicio físico y sudar mucho.",
+      key: 4,
+    },
+  ]);
+
   return (
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
@@ -28,10 +36,7 @@ const Acne = () => {
           y los granos llenos de pus.
         </Text>
       </View>
-      <Image
-        source={require("../src/img/divider.png")}
-        style={styles.divider}
-      />
+
       <View style={styles.container}>
         <Text style={styles.title}>¿Qué es lo que causa el acné?</Text>
         <Image
@@ -52,10 +57,7 @@ const Acne = () => {
           el acné.
         </Text>
       </View>
-      <Image
-        source={require("../src/img/divider.png")}
-        style={styles.divider}
-      />
+
       <View style={styles.container}>
         <Text style={styles.title}>¿Qué puedo hacer con mi acné?</Text>
         <Image
@@ -66,30 +68,17 @@ const Acne = () => {
           Si tienes acné, hay varias medidas que puedes poner en práctica para
           no tener tantos granos:
         </Text>
+
         <View style={styles.listContainer}>
-          <FlatList
-            data={[
-              {
-                key: "Lávate la cara con suavidad una o dos veces al día con agua tibia y un jabón suave o una crema limpiadora para la piel.",
-              },
-              {
-                key: "No te frotes la cara. De hecho, eso te puede empeorar el acné e irritarte la piel.",
-              },
-              {
-                key: "Si usas maquillaje, asegúrate de lavarte la cara para eliminarlo por completo al final de cada día. (Recuerda que no importa el sexo o género, todos pueden usar maquillaje).",
-              },
-              {
-                key: "Lávate la cara después de hacer ejercicio físico y sudar mucho.",
-              },
-            ]}
-            renderItem={({ item }) => (
-              <Text style={styles.item}>
-                {"🔴" + " "}
-                {item.key}
-              </Text>
-            )}
-          />
+          {info.map((item) => {
+            return (
+              <View key={item.key} style={styles.listContainer}>
+                <Text style={styles.item}>🔴{item.info}</Text>
+              </View>
+            );
+          })}
         </View>
+        
       </View>
     </ScrollView>
   );
@@ -127,11 +116,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 250,
     margin: 10,
-    
-  },
-  divider: {
-    width: "100%",
-    height: 50,
   },
   item: {
     padding: 10,
@@ -139,6 +123,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
+    marginBottom: 10,
     width: "100%",
   },
 });

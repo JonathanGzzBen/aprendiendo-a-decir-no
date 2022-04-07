@@ -1,7 +1,6 @@
 import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import Info from "../../components/Info";
-import Divider from "../../components/Divider";
 
 const Anticonceptivos_M = () => {
   const [anticonceptivos, setAnticonceptivos] = useState([
@@ -70,7 +69,6 @@ const Anticonceptivos_M = () => {
         image="https://i.imgur.com/PnUQuH9l.png"
         text="Los métodos anticonceptivos, son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada. Permiten tener el control de la natalidad, ayudando a las parejas a decidir si desean o no tener hijos hasta el momento en que estén preparadas para ello."
       />
-      <Divider />
 
       {anticonceptivos.map((item) => {
         return (
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     margin: 10,
-    marginTop: -20,
+    marginTop: 10,
     padding: 30,
     paddingTop: 0,
     alignItems: "center",
@@ -105,20 +103,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "justify",
-    width: "100%",
-  },
-  divider: {
-    width: "100%",
-    height: 50,
-  },
-  item: {
-    padding: 10,
-    fontSize: 14,
-    letterSpacing: 1.3,
-    paddingTop: 15,
-  },
-  listContainer: {
-    flex: 1,
     width: "100%",
   },
 });

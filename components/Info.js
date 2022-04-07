@@ -1,9 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 
 const Info = (props) => {
@@ -49,10 +44,6 @@ const styles = StyleSheet.create({
     height: 250,
     margin: 10,
     resizeMode: "contain",
-  },
-  divider: {
-    width: "100%",
-    height: 50,
   },
 });
 
