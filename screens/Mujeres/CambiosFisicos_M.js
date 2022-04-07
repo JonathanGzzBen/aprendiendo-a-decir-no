@@ -17,7 +17,7 @@ const CambiosFisicos_M = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Cambios fisicos en Mujeres</Text>
         <Image
-          source={require("../../src/img/Hombres/cambiosF.png")}
+          source={require("../../src/img/Mujer/cambiosF.png")}
           style={styles.mainImageStyle}
         />
         <Text style={styles.subtitle}>
@@ -48,10 +48,23 @@ const CambiosFisicos_M = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buttonImage}
           activeOpacity={0.5}
+          onPress={() =>
+            navigation.navigate("Acne", { name: "Acne" })
+          }
+        >
+          <Image
+            source={require("../../src/img/Mujer/acne-mujer.jpg")}
+            style={styles.buttonImageIconStyle}
+          />
+        </TouchableOpacity>
+        <Text style={styles.caption}>Acné</Text>
+        <TouchableOpacity
+          style={styles.buttonImage}
+          activeOpacity={0.5}
           onPress={() => navigation.navigate("Menstruacion", { name: "Menstruacion" })}
         >
           <Image
-            source={require("../../src/img/Hombres/acne-hombre.jpg")}
+            source={require("../../src/img/Mujer/menstruacion-feed.png")}
             style={styles.buttonImageIconStyle}
           />
         </TouchableOpacity>
@@ -62,11 +75,11 @@ const CambiosFisicos_M = ({ navigation }) => {
           onPress={() => navigation.navigate("Higiene_M", { name: "Higiene_M" })}
         >
           <Image
-            source={require("../../src/img/Hombres/ereccion.jpg")}
+            source={require("../../src/img/Mujer/higiene-feed.png")}
             style={styles.buttonImageIconStyle}
           />
         </TouchableOpacity>
-        <Text style={styles.caption}>Higiene</Text>
+        <Text style={styles.caption}>Higiene íntima</Text>
       </View>
     </ScrollView>
   );

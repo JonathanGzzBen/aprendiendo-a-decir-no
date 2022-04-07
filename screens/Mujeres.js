@@ -19,7 +19,15 @@ const Mujeres = ({ navigation }) => {
           source={require("../src/img/mujeres.jpg")}
         />
         <Text style={styles.title}>Información sobre la mujer</Text>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() =>
+            navigation.navigate("CambiosFisicos_M", {
+              name: "CambiosFisicos_M",
+            })
+          }
+        >
           <Image
             style={styles.buttonImageIconStyle}
             source={require("../src/img/ninia.jpg")}
@@ -28,12 +36,20 @@ const Mujeres = ({ navigation }) => {
             <Text style={styles.buttonTitleStyle} numberOfLines={5}>
               Cambios fisícos{"\n"}
               <Text style={styles.buttonTextStyle}>
-                ¿Qué ocurre en el cuerpo del hombre al llegar a la pubertad?{" "}
+                ¿Qué ocurre en el cuerpo de la mujer al llegar a la pubertad?{" "}
               </Text>
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() =>
+            navigation.navigate("Anticonceptivos_M", {
+              name: "Anticonceptivos_M",
+            })
+          }
+        >
           <Image
             style={styles.buttonImageIconStyle}
             source={require("../src/img/anti_mujeres.png")}

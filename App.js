@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./screens/Login";
@@ -17,6 +18,7 @@ import Hombres from "./screens/Hombres";
 import Valores from "./screens/Valores";
 import Contacto from "./screens/Contacto";
 import Configuracion from "./screens/Configuracion";
+
 import {
   createDrawerNavigator,
   DrawerItemList,
@@ -31,6 +33,7 @@ import {
   getDoc,
   doc,
 } from "firebase/firestore";
+
 import { useEffect, useState } from "react";
 import { async } from "@firebase/util";
 import Introduccion from "./screens/Introduccion";
@@ -46,6 +49,7 @@ import Anticonceptivos_H from "./screens/Hombres/Anticonceptivos_H";
 import CambiosFisicos_M from "./screens/Mujeres/CambiosFisicos_M";
 import Menstruacion from "./screens/Mujeres/Menstruacion";
 import Higiene_M from "./screens/Mujeres/Higiene_M";
+import Anticonceptivos_M from "./screens/Mujeres/Anticonceptivos_M";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -66,8 +70,8 @@ function Name() {
     name: "",
     email: "",
     age: "",
-    tutorName: "", 
-    tutorAge: ""
+    tutorName: "",
+    tutorAge: "",
   });
 
   const actualUser = auth.currentUser;
@@ -99,8 +103,8 @@ function Age() {
     name: "",
     email: "",
     age: "",
-    tutorName: "", 
-    tutorAge: ""
+    tutorName: "",
+    tutorAge: "",
   });
 
   const actualUser = auth.currentUser;
@@ -212,6 +216,15 @@ function MyStack() {
         component={Higiene_M}
         options={{
           title: "Higiene",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="Anticonceptivos_M"
+        component={Anticonceptivos_M}
+        options={{
+          title: "Métodos anticonceptivos para las Mujeres",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}

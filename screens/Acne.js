@@ -59,7 +59,7 @@ const Acne = () => {
       <View style={styles.container}>
         <Text style={styles.title}>¿Qué puedo hacer con mi acné?</Text>
         <Image
-          source={require("../../src/img/cara.png")}
+          source={require("../src/img/cara.png")}
           style={styles.mainImageStyle}
         />
         <Text style={styles.textStyle}>
