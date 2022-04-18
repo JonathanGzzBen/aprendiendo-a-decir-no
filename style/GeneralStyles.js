@@ -6,8 +6,7 @@ export default StyleSheet.create({
     backgroundColor: "white",
     marginTop: 10,
     margin: 10,
-    paddingStart: 30,
-    paddingEnd: 30,
+    padding: 30,
     alignItems: "center",
     textAlign: "center",
   },
@@ -18,5 +17,10 @@ export default StyleSheet.create({
   row: {
     flexDirection: "row",
     flexWrap: "wrap",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
