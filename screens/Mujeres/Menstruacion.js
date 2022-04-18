@@ -1,7 +1,6 @@
-import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import Info from "../../components/Info";
-import Divider from "../../components/Divider";
 
 const Menstruacion = () => {
   const [info, setInfo] = useState([
@@ -30,7 +29,6 @@ const Menstruacion = () => {
         image="https://i.imgur.com/ocVgGUi.png"
         text="La menstruación (conocida coloquialmente como ‘la regla’) es cuando sale sangre del cuerpo de una niña a través de la vagina. Es una señal de que la niña se está acercando al final de la pubertad."
       />
-      <Divider />
 
       <Info
         title="¿Cómo sabré si se está acercando mi primera menstruación?"
@@ -39,7 +37,6 @@ const Menstruacion = () => {
           "Hay algunos signos de que una niña puede tener su primera menstruación. Entre ellos, se incluyen los siguientes:"
         }
       />
-      <Divider />
 
       <View style={styles.container}>
         {info.map((item) => {
@@ -50,8 +47,6 @@ const Menstruacion = () => {
           );
         })}
       </View>
-
-      <Divider />
 
       <Info
         title="¿Qué es el síndrome pre-menstrual?"
@@ -70,8 +65,6 @@ const Menstruacion = () => {
           );
         })}
       </View>
-
-      <Divider />
 
       <Info
         title="Es importante que sepas"
@@ -107,10 +100,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "justify",
     width: "100%",
-  },
-  divider: {
-    width: "100%",
-    height: 50,
   },
   item: {
     padding: 10,

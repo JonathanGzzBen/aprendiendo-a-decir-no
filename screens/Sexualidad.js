@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
 import Info from "../components/Info";
-import Divider from "../components/Divider";
 
 const Sexualidad = () => {
   const [info, setInfo] = useState([
