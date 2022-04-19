@@ -5,195 +5,195 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  TextInput,
   TouchableOpacity,
-  Alert,
 } from "react-native";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore();
 
 const Perfil = () => {
-    return (
-      <ScrollView style={s.safeContainer}>
-        <View style={s.container}>
-          <View style={s.bgContainer}>
-            <TouchableOpacity>
-              <View style={s.userContainer}>
-                <Image
-                  style={s.userImagen}
-                  source={require("../src/img/user.png")}
-                />
-              </View>
-              <View style={s.userNombre}>
+  return (
+    <ScrollView style={s.safeContainer}>
+      <View style={s.container}>
+        <View style={s.bgContainer}>
+          <TouchableOpacity>
+            <View style={s.userContainer}>
+              <Image
+                style={s.userImagen}
+                source={require("../src/img/user.png")}
+              />
+            </View>
+            <View style={s.userNombre}>
               <Text style={s.userTitulo}>{Name()}</Text>
-                <Text style={s.userSubTitulo}>{Age() + " años"}</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+              <Text style={s.userSubTitulo}>{Age() + " años"}</Text>
+            </View>
+          </TouchableOpacity>
         </View>
+      </View>
 
-        <View>
-          <Text style={s.title}>Tu información</Text>
-          <Text style={s.camp}>Email                                     <Text style={s.res}>{Email()}</Text></Text>
-          <Text style={s.camp}>Nombre del tutor                <Text style={s.res}>{TutorName()}</Text></Text>
-          <Text style={s.camp}>Edad del tutor                     <Text style={s.res}>{TutorAge()+" años"}</Text></Text>
-          <Text style={s.camp}>Nombre del menor             <Text style={s.res}>{Name()}</Text></Text>
-          <Text style={s.camp}>Edad del menor                  <Text style={s.res}>{Age()+" años"}</Text></Text>
-        </View>
-    
-      </ScrollView>
-    );
+      <View>
+        <Text style={s.title}>Tu información</Text>
+        <Text style={s.camp}>
+          Email <Text style={s.res}>{Email()}</Text>
+        </Text>
+        <Text style={s.camp}>
+          Nombre del tutor <Text style={s.res}>{TutorName()}</Text>
+        </Text>
+        <Text style={s.camp}>
+          Edad del tutor <Text style={s.res}>{TutorAge() + " años"}</Text>
+        </Text>
+        <Text style={s.camp}>
+          Nombre del menor <Text style={s.res}>{Name()}</Text>
+        </Text>
+        <Text style={s.camp}>
+          Edad del menor <Text style={s.res}>{Age() + " años"}</Text>
+        </Text>
+      </View>
+    </ScrollView>
+  );
+};
+
+function Email() {
+  const actualUser = auth.currentUser;
+  return actualUser.email;
+}
+
+function TutorName() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    age: "",
+    tutorName: "",
+    tutorAge: "",
+  });
+
+  const actualUser = auth.currentUser;
+
+  const getUserById = async (id) => {
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    const user = docSnap.data();
+    if (docSnap.exists()) {
+      console.log("HOla");
+      setUser({
+        ...user,
+      });
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
   };
 
-  function Email() {
-  
-    const actualUser = auth.currentUser;
-    return actualUser.email;
-  }
+  useEffect(() => {
+    getUserById(actualUser.email);
+  }, []);
 
-  function TutorName() {
-    const [user, setUser] = useState({
-      name: "",
-      email: "",
-      age: "",
-      tutorName: "", 
-      tutorAge: ""
-    });
-  
-    const actualUser = auth.currentUser;
-  
-    const getUserById = async (id) => {
-      const docRef = doc(db, "users", id);
-      const docSnap = await getDoc(docRef);
-      const user = docSnap.data();
-      if (docSnap.exists()) {
-        console.log("HOla");
-        setUser({
-          ...user,
-        });
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    };
-  
-    useEffect(() => {
-      getUserById(actualUser.email);
-    }, []);
-  
-    return user.tutorName;
-  }
+  return user.tutorName;
+}
 
-  function TutorAge() {
-    const [user, setUser] = useState({
-      name: "",
-      email: "",
-      age: "",
-      tutorName: "", 
-      tutorAge: ""
-    });
-  
-    const actualUser = auth.currentUser;
-  
-    const getUserById = async (id) => {
-      const docRef = doc(db, "users", id);
-      const docSnap = await getDoc(docRef);
-      const user = docSnap.data();
-      if (docSnap.exists()) {
-        console.log("HOla");
-        setUser({
-          ...user,
-        });
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    };
-  
-    useEffect(() => {
-      getUserById(actualUser.email);
-    }, []);
-  
-    return user.tutorAge;
-  }
+function TutorAge() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    age: "",
+    tutorName: "",
+    tutorAge: "",
+  });
 
-  function Name() {
-    const [user, setUser] = useState({
-      name: "",
-      email: "",
-      age: "",
-      tutorName: "", 
-      tutorAge: ""
-    });
-  
-    const actualUser = auth.currentUser;
-  
-    const getUserById = async (id) => {
-      const docRef = doc(db, "users", id);
-      const docSnap = await getDoc(docRef);
-      const user = docSnap.data();
-      if (docSnap.exists()) {
-        console.log("HOla");
-        setUser({
-          ...user,
-        });
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    };
-  
-    useEffect(() => {
-      getUserById(actualUser.email);
-    }, []);
-  
-    return user.name;
-  }
-  
-  function Age() {
-    const [user, setUser] = useState({
-      name: "",
-      email: "",
-      age: "",
-      tutorName: "", 
-      tutorAge: ""
-    });
-  
-    const actualUser = auth.currentUser;
-  
-    const getUserById = async (id) => {
-      const docRef = doc(db, "users", id);
-      const docSnap = await getDoc(docRef);
-      const user = docSnap.data();
-      if (docSnap.exists()) {
-        console.log("HOla");
-        setUser({
-          ...user,
-        });
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    };
-  
-    useEffect(() => {
-      getUserById(actualUser.email);
-    }, []);
-  
-    return user.age;
-  }
+  const actualUser = auth.currentUser;
+
+  const getUserById = async (id) => {
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    const user = docSnap.data();
+    if (docSnap.exists()) {
+      console.log("HOla");
+      setUser({
+        ...user,
+      });
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+
+  useEffect(() => {
+    getUserById(actualUser.email);
+  }, []);
+
+  return user.tutorAge;
+}
+
+function Name() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    age: "",
+    tutorName: "",
+    tutorAge: "",
+  });
+
+  const actualUser = auth.currentUser;
+
+  const getUserById = async (id) => {
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    const user = docSnap.data();
+    if (docSnap.exists()) {
+      console.log("HOla");
+      setUser({
+        ...user,
+      });
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+
+  useEffect(() => {
+    getUserById(actualUser.email);
+  }, []);
+
+  return user.name;
+}
+
+function Age() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    age: "",
+    tutorName: "",
+    tutorAge: "",
+  });
+
+  const actualUser = auth.currentUser;
+
+  const getUserById = async (id) => {
+    const docRef = doc(db, "users", id);
+    const docSnap = await getDoc(docRef);
+    const user = docSnap.data();
+    if (docSnap.exists()) {
+      console.log("HOla");
+      setUser({
+        ...user,
+      });
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+
+  useEffect(() => {
+    getUserById(actualUser.email);
+  }, []);
+
+  return user.age;
+}
 
 const s = StyleSheet.create({
   container: {

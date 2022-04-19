@@ -1,22 +1,20 @@
  import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+ import { Acne, Configuracion, Contacto, Hombres, Mujeres, Inclusion, Inicio, Introduccion, Perfil, Pubertad, Register, Sexualidad, } from "./screens/Screens";
+ import {Anticonceptivos_M, CambiosFisicos_M, Menstruacion, Higiene_M} from './screens/Mujeres/ScreensM'
+ import {Anticonceptivos_H, CambiosFisicos_H, Ereccion, Humedos} from './screens/Hombres/ScreensH'
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Acne, Configuracion, Contacto, Hombres, Mujeres, Inclusion, Inicio, Introduccion, Perfil, Pubertad, Register, Sexualidad, } from "./screens/Screens";
-
-import {Anticonceptivos_M, CambiosFisicos_M, Menstruacion, Higiene_M} from './screens/Mujeres/ScreensM'
-import {Anticonceptivos_H, CambiosFisicos_H, Ereccion, Humedos} from './screens/Hombres/ScreensH'
+import { useEffect, useState } from "react";
 
 import {
   createDrawerNavigator,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./database/firebase";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
-
-import { useEffect, useState } from "react";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -48,7 +46,6 @@ function Name() {
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
-      console.log("HOla");
       setUser({
         ...user,
       });
@@ -81,7 +78,6 @@ function Age() {
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
-      console.log("HOla");
       setUser({
         ...user,
       });
