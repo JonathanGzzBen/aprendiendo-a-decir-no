@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
 import Info from "../../components/Info";
 import styles from "../../style/GeneralStyles";
@@ -73,7 +73,7 @@ const Anticonceptivos_M = () => {
 
       {anticonceptivos.map((item) => {
         return (
-          <View>
+          <View key={item.key} >
             <Info title={item.titulo} image={item.imagen} text={item.texto} />
           </View>
         );

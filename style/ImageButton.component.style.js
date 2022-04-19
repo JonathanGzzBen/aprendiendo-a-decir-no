@@ -22,7 +22,7 @@ export default StyleSheet.create({
     paddingTop: 25,
   },
   buttonImageIconStyle: {
-    height: hp("14%"),
+    height: hp("14.5%"),
     width: "100%",
     resizeMode: "contain",
     alignContent: "center",

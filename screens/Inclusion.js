@@ -67,7 +67,7 @@ const Valores = () => {
   ]);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={styles.safeContainer}>
       {info.map((item) => {
         return (
           <View key={item.key}>

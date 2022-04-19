@@ -19,7 +19,7 @@ const CambiosFisicos_M = ({ navigation }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Cambios fisicos en Mujeres</Text>
         <Image
-          source={require("../../src/img/Mujer/cambiosF.png")}
+          source={{uri: "https://i.imgur.com/mWeIlHs.png"}}
           style={styles.mainImageMH}
         />
         <Text style={styles.subtitle}>

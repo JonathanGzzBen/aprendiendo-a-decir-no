@@ -23,15 +23,24 @@ export default StyleSheet.create({
     flexWrap: "wrap",
   },
   title: {
-    fontSize: hp("3%"),
+    fontSize: hp("2.7%"),
     fontWeight: "bold",
     textAlign: "center",
+    marginTop: 10,
   },
   subtitle: {
     fontSize: hp("2%"),
     fontWeight: "bold",
     textAlign: "justify",
     width: "100%",
+  },
+  subtitleItalic: {
+    fontSize: 16,
+    fontWeight: "bold",
+    fontStyle: "italic",
+    textAlign: "justify",
+    width: "100%",
+    marginTop: 15,
   },
   textStyle: {
     fontSize: 14,
