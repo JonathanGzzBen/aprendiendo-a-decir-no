@@ -33,10 +33,24 @@ export default StyleSheet.create({
     textAlign: "justify",
     width: "100%",
   },
+  textStyle: {
+    fontSize: 14,
+    flex: 0.2,
+    fontStyle: "normal",
+    paddingTop: 15,
+    letterSpacing: 1.3,
+    textAlign: "justify",
+    width: "100%",
+  },
   mainImageStyle: {
     width: wp("85%"),
     height: hp("20%"),
-    marginBottom: 15,
+    margin: 10,
+  },
+  mainImageMH: {
+    width: wp("75%"),
+    height: hp("30%"),
+    margin: 15,
   },
   button: {
     backgroundColor: "#713C6A",
@@ -50,8 +64,8 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   item: {
-    padding: 10,
-    fontSize: 14,
+    padding: 7,
+    fontSize: hp("1.6%"),
     letterSpacing: 1.3,
   },
   listContainer: {

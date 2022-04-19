@@ -1,6 +1,7 @@
 import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
 import React, { useState } from "react";
 import Info from "../../components/Info";
+import styles from "../../style/GeneralStyles";
 
 const Anticonceptivos_M = () => {
   const [anticonceptivos, setAnticonceptivos] = useState([
@@ -63,7 +64,7 @@ const Anticonceptivos_M = () => {
   ]);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={styles.safeContainer}>
       <Info
         title="¿Qué son los métodos anticonceptivos?"
         image="https://i.imgur.com/PnUQuH9l.png"
@@ -87,24 +88,5 @@ const Anticonceptivos_M = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    margin: 10,
-    marginTop: 10,
-    padding: 30,
-    paddingTop: 0,
-    alignItems: "center",
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "justify",
-    width: "100%",
-  },
-});
 
 export default Anticonceptivos_M;

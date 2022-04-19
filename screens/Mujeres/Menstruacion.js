@@ -1,6 +1,7 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import Info from "../../components/Info";
+import styles from "../../style/GeneralStyles";
 
 const Menstruacion = () => {
   const [info, setInfo] = useState([
@@ -23,7 +24,7 @@ const Menstruacion = () => {
   ]);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={styles.safeContainer}>
       <Info
         title="¿Qué es la menstruación?"
         image="https://i.imgur.com/ocVgGUi.png"
@@ -83,34 +84,5 @@ const Menstruacion = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    margin: 10,
-    marginTop: -20,
-    padding: 30,
-    paddingTop: 0,
-    alignItems: "center",
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "justify",
-    width: "100%",
-  },
-  item: {
-    padding: 10,
-    fontSize: 14,
-    letterSpacing: 1.3,
-    paddingTop: 15,
-  },
-  listContainer: {
-    flex: 1,
-    width: "100%",
-  },
-});
 
 export default Menstruacion;
