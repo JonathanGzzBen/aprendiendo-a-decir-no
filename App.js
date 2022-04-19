@@ -1,23 +1,11 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Login from "./screens/Login";
-import Inicio from "./screens/Inicio";
-import Register from "./screens/Register";
-import Mujeres from "./screens/Mujeres";
-import Hombres from "./screens/Hombres";
-import Inclusion from "./screens/Inclusion";
-import Contacto from "./screens/Contacto";
-import Configuracion from "./screens/Configuracion";
+import { Acne, Configuracion, Contacto, Hombres, Mujeres, Inclusion, Inicio, Introduccion, Perfil, Pubertad, Register, Sexualidad, } from "./screens/Screens";
+
+import {Anticonceptivos_M, CambiosFisicos_M, Menstruacion, Higiene_M} from './screens/Mujeres/ScreensM'
+import {Anticonceptivos_H, CambiosFisicos_H, Ereccion, Humedos} from './screens/Hombres/ScreensH'
 
 import {
   createDrawerNavigator,
@@ -26,30 +14,9 @@ import {
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./database/firebase";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
-import { async } from "@firebase/util";
-import Introduccion from "./screens/Introduccion";
-import Pubertad from "./screens/Pubertad";
-import Sexualidad from "./screens/Sexualidad";
-import Perfil from "./screens/Perfil";
-
-import CambiosFisicos_H from "./screens/Hombres/CambiosFisicos_H";
-import Acne from "./screens/Acne";
-import Ereccion from "./screens/Hombres/Ereccion";
-import Humedos from "./screens/Hombres/Humedos";
-import Anticonceptivos_H from "./screens/Hombres/Anticonceptivos_H";
-import CambiosFisicos_M from "./screens/Mujeres/CambiosFisicos_M";
-import Menstruacion from "./screens/Mujeres/Menstruacion";
-import Higiene_M from "./screens/Mujeres/Higiene_M";
-import Anticonceptivos_M from "./screens/Mujeres/Anticonceptivos_M";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
