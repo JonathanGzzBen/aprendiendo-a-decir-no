@@ -1,17 +1,8 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import React from "react";
+import { View, ScrollView } from "react-native";
 import CardButton from "../components/CardButton";
 import Info from "../components/Info";
-import styles from "../style/GeneralStyles"
+import styles from "../style/GeneralStyles";
 
 const Pubertad = ({ navigation }) => {
   return (
@@ -23,15 +14,23 @@ const Pubertad = ({ navigation }) => {
       />
       <View style={styles.container}>
         <View style={styles.row}>
-        <CardButton
+          <CardButton
             buttonImage="https://i.imgur.com/EJFR6lQ.png"
             buttonText="Cuidados en hombres"
-            onPress={() => navigation.navigate("CambiosFisicos_H", { name: "CambiosFisicos_H" })}
+            onPress={() =>
+              navigation.navigate("CambiosFisicos_H", {
+                name: "CambiosFisicos_H",
+              })
+            }
           />
           <CardButton
             buttonImage="https://i.imgur.com/PiHS7Xv.png"
             buttonText="Cuidados en mujeres"
-            onPress={() => navigation.navigate("CambiosFisicos_M", { name: "CambiosFisicos_M" })}
+            onPress={() =>
+              navigation.navigate("CambiosFisicos_M", {
+                name: "CambiosFisicos_M",
+              })
+            }
           />
         </View>
       </View>

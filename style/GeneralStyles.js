@@ -33,4 +33,9 @@ export default StyleSheet.create({
     textAlign: "justify",
     width: "100%",
   },
+  mainImageStyle: {
+    width: wp('85%'),
+    height: hp('20%'),
+    marginBottom: 15,
+  },
 });
