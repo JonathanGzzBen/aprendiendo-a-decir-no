@@ -1,6 +1,7 @@
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
 import Info from "../components/Info";
+import styles from "../style/GeneralStyles";
 
 const Valores = () => {
   const [info, setInfo] = useState([
@@ -69,7 +70,7 @@ const Valores = () => {
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
       {info.map((item) => {
         return (
-          <View>
+          <View key={item.key}>
             <Info title={item.titulo} image={item.imagen} text={item.texto} />
           </View>
         );
@@ -112,34 +113,5 @@ const Valores = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    margin: 10,
-    marginTop: 10,
-    padding: 30,
-    paddingTop: 0,
-    alignItems: "center",
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "justify",
-    width: "100%",
-  },
-  item: {
-    padding: 10,
-    fontSize: 14,
-    letterSpacing: 1.3,
-  },
-  listContainer: {
-    flex: 1,
-    marginBottom: 10,
-    width: "100%",
-  },
-});
 
 export default Valores;

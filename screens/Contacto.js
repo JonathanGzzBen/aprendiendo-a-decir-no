@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
   ScrollView,
   StyleSheet,
   Image,
-  TextInput,
-  TouchableOpacity,
-  Alert,
   Pressable,
   Linking,
 } from "react-native";
+import styles from "../style/GeneralStyles";
 
 const Contacto = () => {
   return (
@@ -86,57 +84,5 @@ const Contacto = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    marginTop: 15,
-    margin: 10,
-    padding: 20,
-    alignItems: "center",
-  },
-  safeContainer: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  title: {
-    fontSize: 24,
-    textAlign: "center",
-    fontWeight: "bold",
-  },
-  mainImageStyle: {
-    width: "100%",
-    height: 200,
-    margin: 20,
-  },
-  button: {
-    backgroundColor: "#713C6A",
-    padding: 12,
-    alignSelf: "flex-end",
-    borderRadius: 15,
-    marginTop: 30,
-  },
-  textButton: {
-    color: "white",
-    fontSize: 16,
-  },
-  textStyle: {
-    fontSize: 14,
-    fontStyle: "normal",
-    lineHeight: 20,
-    textAlign: "justify",
-    marginTop: 20,
-  },
-  linkContainer: {
-    alignItems: "flex-start",
-    marginTop: 10,
-  },
-  linkText: {
-    color: "#713C6A",
-    textDecorationLine: "underline",
-    fontWeight: "bold",
-  },
-});
 
 export default Contacto;

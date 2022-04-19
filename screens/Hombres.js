@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
+import { View, Text, ScrollView, Image } from "react-native";
 import ImageButtonMH from "../components/ImageButtonMH";
 import styles from "../style/GeneralStyles";
 
@@ -17,7 +8,7 @@ const Hombres = ({ navigation }) => {
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
         <Image
-          source={{uri: 'https://i.imgur.com/9Ar5PzF.png'}}
+          source={{ uri: "https://i.imgur.com/9Ar5PzF.png" }}
           style={styles.mainImageStyle}
         />
         <Text style={styles.title}>Información sobre el hombre</Text>
