@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import { View, Text, ScrollView, Image } from "react-native";
 import ImageButtonMH from "../components/ImageButtonMH";
 import styles from "../style/GeneralStyles";
 
@@ -8,7 +8,7 @@ const Mujeres = ({ navigation }) => {
       <View style={styles.container}>
         <Image
           style={styles.mainImageStyle}
-          source={require("../src/img/mujeres.jpg")}
+          source={{uri: 'https://i.imgur.com/7YvKagT.jpg'}}
         />
         <Text style={styles.title}>Información sobre la mujer</Text>
         <ImageButtonMH

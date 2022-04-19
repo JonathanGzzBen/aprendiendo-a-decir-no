@@ -18,8 +18,9 @@ export default StyleSheet.create({
   buttonImageIconStyle: {
     padding: 10,
     margin: 5,
+    marginLeft: 20,
     height: hp('100%'),
-    width: wp('16%'),
+    width: wp('15%'),
     resizeMode: "contain",
   },
   buttonTitleStyle: {
