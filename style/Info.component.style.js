@@ -5,7 +5,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    marginTop: 10,
     margin: 10,
     paddingTop: 30,
     paddingStart: 30,
@@ -13,13 +12,12 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: hp('3%'),
     fontWeight: "bold",
     textAlign: "center",
   },
   textStyle: {
-    fontSize: 14,
-    flex: 0.2,
+    fontSize: hp('1.7%'),
     fontStyle: "normal",
     paddingTop: 15,
     letterSpacing: 1.3,

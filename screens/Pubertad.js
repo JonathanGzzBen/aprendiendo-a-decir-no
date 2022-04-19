@@ -8,123 +8,35 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  Alert,
 } from "react-native";
+import CardButton from "../components/CardButton";
+import Info from "../components/Info";
+import styles from "../style/GeneralStyles"
 
 const Pubertad = ({ navigation }) => {
   return (
     <ScrollView style={styles.safeContainer}>
+      <Info
+        title="¿Qué es la pubertad?"
+        image="https://i.imgur.com/Yrm2xC9.png"
+        text="Decir NO, debe ser algo sencillo y fácil de decir y debe ser respetado, si no es respetado no dudes en gritar, irte de ahi o actuar de manera defensiva ya que es un crimen obligar a alguien a algo que no quiere."
+      />
       <View style={styles.container}>
-        <Text style={styles.title}>¿Qué es la pubertad?</Text>
-        <Image
-          source={require("../src/img/pubertad.png")}
-          style={styles.mainImageStyle}
-        />
-        <Text style={styles.textStyle}>
-          Pubertad es el momento de la vida cuando un niño o una niña madura
-          sexualmente. Es un proceso que suele ocurrir entre los 10 y 14 años
-          para las niñas y entre los 12 y 16 para los varones. Causa cambios
-          físicos y afecta a niños y niñas de manera distinta.
-        </Text>
         <View style={styles.row}>
-          <TouchableOpacity
-            style={styles.buttonStyle}
-            activeOpacity={0.5}
-            onPress={() =>
-              navigation.navigate("CambiosFisicos_H", {
-                name: "CambiosFisicos_H",
-              })
-            }
-          >
-            <Image
-              source={require("../src/img/masculino.png")}
-              style={styles.buttonImageIconStyle}
-            />
-            <Text style={styles.buttonTextStyle}>Pubertad en hombres</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buttonStyle}
-            activeOpacity={0.5}
-            onPress={() =>
-              navigation.navigate("CambiosFisicos_M", {
-                name: "CambiosFisicos_M",
-              })
-            }
-          >
-            <Image
-              source={require("../src/img/femenino.png")}
-              style={styles.buttonImageIconStyle}
-            />
-            <Text style={styles.buttonTextStyle}>Pubertad en mujeres</Text>
-          </TouchableOpacity>
+        <CardButton
+            buttonImage="https://i.imgur.com/EJFR6lQ.png"
+            buttonText="Cuidados en hombres"
+            onPress={() => navigation.navigate("CambiosFisicos_H", { name: "CambiosFisicos_H" })}
+          />
+          <CardButton
+            buttonImage="https://i.imgur.com/PiHS7Xv.png"
+            buttonText="Cuidados en mujeres"
+            onPress={() => navigation.navigate("CambiosFisicos_M", { name: "CambiosFisicos_M" })}
+          />
         </View>
       </View>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    marginTop: 10,
-    margin: 10,
-    padding: 30,
-    alignItems: "center",
-    textAlign: "center",
-  },
-  safeContainer: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  buttonStyle: {
-    height: 110,
-    width: 100,
-    flex: 0.5,
-    alignContent: "center",
-    borderWidth: 2,
-    borderColor: "#713C6A",
-    justifyContent: "center",
-    backgroundColor: "rgba(248, 236, 223, 0.3)",
-    borderRadius: 15,
-    marginTop: 20,
-    margin: 10,
-  },
-  textStyle: {
-    fontSize: 14,
-    flex: 0.2,
-    fontStyle: "normal",
-    paddingTop: 15,
-    letterSpacing: 1.3,
-    textAlign: "justify",
-    width: "100%",
-  },
-  buttonImageIconStyle: {
-    height: 32,
-    width: 32,
-    resizeMode: "contain",
-    alignSelf: "center",
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  buttonTextStyle: {
-    fontSize: 13,
-    fontWeight: "500",
-    textAlign: "center",
-  },
-  mainImageStyle: {
-    width: 350,
-    height: 150,
-    margin: 15,
-  },
-});
 
 export default Pubertad;

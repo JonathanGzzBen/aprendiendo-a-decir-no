@@ -1,4 +1,8 @@
 import { StyleSheet } from "react-native";
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+  } from "react-native-responsive-screen";
 
 export default StyleSheet.create({
   container: {
@@ -19,8 +23,14 @@ export default StyleSheet.create({
     flexWrap: "wrap",
   },
   title: {
-    fontSize: 24,
+    fontSize: hp('3%'),
     fontWeight: "bold",
     textAlign: "center",
+  },
+  subtitle: {
+    fontSize: hp('2%'),
+    fontWeight: "bold",
+    textAlign: "justify",
+    width: "100%",
   },
 });

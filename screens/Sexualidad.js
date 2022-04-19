@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import { View, ScrollView } from "react-native";
 import Info from "../components/Info";
+import styles from "../style/GeneralStyles"
 
 const Sexualidad = () => {
   const [info, setInfo] = useState([
@@ -25,7 +26,7 @@ const Sexualidad = () => {
   ]);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
+    <ScrollView style={styles.safeContainer}>
       {info.map((item) => {
         return (
           <View>
@@ -36,24 +37,5 @@ const Sexualidad = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    margin: 10,
-    marginTop: -20,
-    padding: 30,
-    paddingTop: 0,
-    alignItems: "center",
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "justify",
-    width: "100%",
-  },
-});
 
 export default Sexualidad;

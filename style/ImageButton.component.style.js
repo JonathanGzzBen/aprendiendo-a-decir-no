@@ -22,9 +22,10 @@ export default StyleSheet.create({
     paddingTop: 25,
   },
   buttonImageIconStyle: {
-    height: hp("13%"),
+    height: hp("14%"),
     width: "100%",
     resizeMode: "contain",
-    alignSelf: "center",
-  },
+    alignContent: "center",
+    justifyContent: "center",
+},
 });

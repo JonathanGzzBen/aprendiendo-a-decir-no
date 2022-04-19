@@ -1,4 +1,4 @@
-import { View, ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView } from "react-native";
 import CardButton from "../components/CardButton";
 import Info from "../components/Info";
 import styles from "../style/GeneralStyles"
