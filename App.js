@@ -1,11 +1,36 @@
- import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
- import { Acne, Configuracion, Contacto, Hombres, Mujeres, Inclusion, Inicio, Introduccion, Perfil, Pubertad, Register, Sexualidad, } from "./screens/Screens";
- import {Anticonceptivos_M, CambiosFisicos_M, Menstruacion, Higiene_M} from './screens/Mujeres/ScreensM'
- import {Anticonceptivos_H, CambiosFisicos_H, Ereccion, Humedos} from './screens/Hombres/ScreensH'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  Acne,
+  Configuracion,
+  Contacto,
+  Hombres,
+  Mujeres,
+  Inclusion,
+  Inicio,
+  Introduccion,
+  Login,
+  Perfil,
+  Pubertad,
+  Register,
+  Sexualidad,
+} from "./screens/Screens";
+import {
+  Anticonceptivos_M,
+  CambiosFisicos_M,
+  Menstruacion,
+  Higiene_M,
+} from "./screens/Mujeres/ScreensM";
+import {
+  Anticonceptivos_H,
+  CambiosFisicos_H,
+  Ereccion,
+  Humedos,
+} from "./screens/Hombres/ScreensH";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useEffect, useState } from "react";
+import { Avatar } from "react-native-elements";
 
 import {
   createDrawerNavigator,
@@ -329,9 +354,11 @@ function Menu(props) {
       <View style={s.bgContainer}>
         <TouchableOpacity>
           <View style={s.userContainer}>
-            <Image
-              style={s.userImagen}
-              source={require("./src/img/user.png")}
+            <Avatar
+              rounded
+              size="large"
+              source={{uri : 'https://i.imgur.com/K4DfE5S.jpg'}}
+              overlayContainerStyle={{backgroundColor: '#713C6A'}}
             />
           </View>
           <View style={s.userNombre}>
@@ -360,7 +387,7 @@ const s = StyleSheet.create({
   userContainer: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 50,
+    marginTop: 70,
   },
 
   userImagen: {

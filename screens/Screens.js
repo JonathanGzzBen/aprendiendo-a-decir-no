@@ -6,6 +6,7 @@ import Mujeres from "./Mujeres";
 import Inclusion from "./Inclusion";
 import Inicio from "./Inicio";
 import Introduccion from "./Introduccion";
+import Login from "./Login";
 import Perfil from "./Perfil";
 import Pubertad from "./Pubertad";
 import Register from "./Register";
@@ -20,6 +21,7 @@ export {
   Inclusion,
   Inicio,
   Introduccion,
+  Login,
   Perfil,
   Pubertad,
   Register,

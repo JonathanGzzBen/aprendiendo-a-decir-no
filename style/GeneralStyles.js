@@ -49,7 +49,6 @@ export default StyleSheet.create({
     paddingTop: 15,
     letterSpacing: 1.3,
     textAlign: "justify",
-    width: "100%",
   },
   mainImageStyle: {
     width: wp("85%"),

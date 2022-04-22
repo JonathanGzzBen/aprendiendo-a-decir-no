@@ -38,7 +38,7 @@ const Anticonceptivos_H = () => {
 
       {anticonceptivos.map((item) => {
         return (
-          <View>
+          <View key={item.key}>
             <Info title={item.titulo} image={item.imagen} text={item.texto} />
           </View>
         );

@@ -5,37 +5,36 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  TextInput,
   TouchableOpacity,
-  Alert,
 } from "react-native";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Avatar } from "react-native-elements";
+
+import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore();
 
-const Configuracion = ({navigation}) => {
+const Configuracion = ({ navigation }) => {
   return (
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
-        <Image
-          source={require("../src/img/user.png")}
-          style={styles.mainImageStyle}
+        <Avatar
+          rounded
+          size={200}
+          source={{ uri: "https://i.imgur.com/K4DfE5S.jpg" }}
+          containerStyle={{ margin: 20, alignSelf: "center" }}
         />
         <Text style={styles.title}>{Name()}</Text>
         <View style={styles.divider}></View>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}
-        onPress={() => navigation.navigate('Perfil', {name: 'Perfil'})}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate("Perfil", { name: "Perfil" })}
+        >
           <Image
             source={require("../src/img/ninos.png")}
             style={styles.buttonImageIconStyle}
@@ -49,10 +48,12 @@ const Configuracion = ({navigation}) => {
           />
         </TouchableOpacity>
 
-          <View style={styles.divider}></View>
-        <TouchableOpacity style={styles.buttonBottomStyle} 
-        onPress={() => navigation.navigate('Login', {name: 'Login'})}
-        activeOpacity={0.5}>
+        <View style={styles.divider}></View>
+        <TouchableOpacity
+          style={styles.buttonBottomStyle}
+          onPress={() => navigation.navigate("Login", { name: "Login" })}
+          activeOpacity={0.5}
+        >
           <Image
             source={require("../src/img/sesion.png")}
             style={styles.buttonImageIconStyle}

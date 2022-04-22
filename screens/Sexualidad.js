@@ -29,7 +29,7 @@ const Sexualidad = () => {
     <ScrollView style={styles.safeContainer}>
       {info.map((item) => {
         return (
-          <View>
+          <View key={item.key}>
             <Info title={item.titulo} image={item.imagen} text={item.texto} />
           </View>
         );

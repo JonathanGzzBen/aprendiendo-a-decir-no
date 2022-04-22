@@ -3,4 +3,4 @@ import CambiosFisicos_H from "./CambiosFisicos_H";
 import Ereccion from "./Ereccion";
 import Humedos from "./Humedos";
 
-export {Anticonceptivos_H, CambiosFisicos_H, Ereccion, Humedos}
+export {Anticonceptivos_H, CambiosFisicos_H, Ereccion, Humedos} 

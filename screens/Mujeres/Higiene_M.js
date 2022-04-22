@@ -3,7 +3,7 @@ import React from "react";
 import Info from "../../components/Info";
 import styles from "../../style/GeneralStyles";
 
-const Higiene_F = () => {
+const Higiene_M = () => {
   return (
     <ScrollView style={styles.safeContainer}>
       <Info
@@ -30,4 +30,4 @@ const Higiene_F = () => {
   );
 };
 
-export default Higiene_F;
+export default Higiene_M;

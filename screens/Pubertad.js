@@ -10,13 +10,13 @@ const Pubertad = ({ navigation }) => {
       <Info
         title="¿Qué es la pubertad?"
         image="https://i.imgur.com/Yrm2xC9.png"
-        text="Decir NO, debe ser algo sencillo y fácil de decir y debe ser respetado, si no es respetado no dudes en gritar, irte de ahi o actuar de manera defensiva ya que es un crimen obligar a alguien a algo que no quiere."
+        text="Pubertad es el momento de la vida cuando un niño o una niña madura sexualmente. Es un proceso que suele ocurrir entre los 10 y 14 años para las niñas y entre los 12 y 16 para los varones. Causa cambios físicos y afecta a niños y niñas de manera distinta."
       />
       <View style={styles.container}>
         <View style={styles.row}>
           <CardButton
             buttonImage="https://i.imgur.com/EJFR6lQ.png"
-            buttonText="Cuidados en hombres"
+            buttonText="Pubertad en hombres"
             onPress={() =>
               navigation.navigate("CambiosFisicos_H", {
                 name: "CambiosFisicos_H",
@@ -25,7 +25,7 @@ const Pubertad = ({ navigation }) => {
           />
           <CardButton
             buttonImage="https://i.imgur.com/PiHS7Xv.png"
-            buttonText="Cuidados en mujeres"
+            buttonText="Pubertad en mujeres"
             onPress={() =>
               navigation.navigate("CambiosFisicos_M", {
                 name: "CambiosFisicos_M",

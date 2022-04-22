@@ -3,12 +3,11 @@ import {
   View,
   Text,
   ScrollView,
-  StyleSheet,
   Image,
   Pressable,
   Linking,
 } from "react-native";
-import styles from "../style/GeneralStyles";
+import styles from '../style/GeneralStyles'
 
 const Contacto = () => {
   return (
@@ -75,15 +74,12 @@ const Contacto = () => {
               )
             }
           >
-              <Text style={styles.textButton}>
-                  Envianos tus comentarios
-              </Text>
+            <Text style={styles.textButton}>Envianos tus comentarios</Text>
           </Pressable>
         </View>
       </View>
     </ScrollView>
   );
 };
-
 
 export default Contacto;
