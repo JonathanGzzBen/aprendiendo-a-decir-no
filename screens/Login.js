@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import {
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
+import { useNavigation } from "@react-navigation/native";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -19,11 +20,12 @@ const Login = (props) => {
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const navigation = useNavigation()
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        props.navigation.navigate("Inicio", { user: email });
+        props.navigation.replace("Inicio", { user: email });
       })
       .catch((error) => {
         Alert.alert("Credenciales incorrectas");

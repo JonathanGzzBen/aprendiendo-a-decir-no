@@ -4,9 +4,10 @@ import {
   Text,
   ScrollView,
   StyleSheet,
-  Image,
   TouchableOpacity,
 } from "react-native";
+import { Avatar } from "react-native-elements";
+
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
@@ -23,9 +24,11 @@ const Perfil = () => {
         <View style={s.bgContainer}>
           <TouchableOpacity>
             <View style={s.userContainer}>
-              <Image
-                style={s.userImagen}
-                source={require("../src/img/user.png")}
+              <Avatar
+                rounded
+                size="xlarge"
+                source={{ uri: "https://i.imgur.com/K4DfE5S.jpg" }}
+                containerStyle={{ margin: 20, alignSelf: "center" }}
               />
             </View>
             <View style={s.userNombre}>
@@ -79,7 +82,6 @@ function TutorName() {
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
-      console.log("HOla");
       setUser({
         ...user,
       });
@@ -112,7 +114,6 @@ function TutorAge() {
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
-      console.log("HOla");
       setUser({
         ...user,
       });
