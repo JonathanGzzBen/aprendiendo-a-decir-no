@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Avatar } from "react-native-elements";
 
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
@@ -19,6 +19,15 @@ const auth = getAuth(app);
 const db = getFirestore();
 
 const Configuracion = ({ navigation }) => {
+  const auth = getAuth();
+  const handleSignOut = () => {
+    signOut(auth)
+    .then(() => {
+      navigation.replace("Login")
+    })
+    .catch(error => alert(error.message))
+  }
+
   return (
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
@@ -51,7 +60,7 @@ const Configuracion = ({ navigation }) => {
         <View style={styles.divider}></View>
         <TouchableOpacity
           style={styles.buttonBottomStyle}
-          onPress={() => navigation.navigate("Login", { name: "Login" })}
+          onPress={handleSignOut}
           activeOpacity={0.5}
         >
           <Image
