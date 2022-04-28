@@ -11,8 +11,7 @@ import {
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
-import { getFirestore } from "firebase/firestore";
-import { getDatabase, ref, update } from "firebase/database";
+import { getFirestore, updateDoc, doc } from "firebase/firestore";
 
 const EditProfile = () => {
   const [email, setEmail] = useState("");
@@ -23,10 +22,10 @@ const EditProfile = () => {
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
-  const db = getDatabase();
+  const db = getFirestore();
 
   const handleUpdate = () => {
-    update(ref(db, "users/" + email), {
+    updateDoc(doc(db, "users", email.toLowerCase()), {
       age: KidAge,
       email: email,
       name: KidName,
@@ -46,17 +45,16 @@ const EditProfile = () => {
   return (
     <ScrollView>
       <View>
-        <View style={{ alignItems: "center", paddingTop: 30 }}>
-          <Text style={styles.SubTitle}>
-            DEBES TENER MAS DE 18 AÑOS PARA REGISTRARTE
-          </Text>
-        </View>
+        <View style={{ alignItems: "center", padding: 30 }}></View>
 
-        <View style={{ paddingTop: 30 }}>
+        <View style={{ padding: 30 }}>
           <Text style={styles.Data}>Email</Text>
           <TextInput
+            placeholder="Email"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
             style={styles.input}
-            value={email}
+            value={email ? email : ''}
             onChangeText={(text) => setEmail(text)}
           />
 
