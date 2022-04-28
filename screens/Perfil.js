@@ -249,17 +249,18 @@ const s = StyleSheet.create({
   },
 
   camp: {
-    fontSize: 15,
+    fontSize: 14,
     paddingLeft: 20,
     paddingBottom: 20,
     fontWeight: "bold",
   },
 
   res: {
-    fontSize: 15,
+    fontSize: 14,
     paddingLeft: 20,
     fontWeight: "bold",
-    color: "#989898",
+    color: "#666666",
+    textAlign: "justify",
   },
 
   camaraContainer: {

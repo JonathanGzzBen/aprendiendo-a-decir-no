@@ -13,15 +13,15 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, updateDoc, doc } from "firebase/firestore";
 
-const EditProfile = () => {
+const EditProfile = ({ navigation }) => {
   const [userData, setUserData] = useState(null);
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore();
 
-  const handleUpdate = () => {
-    updateDoc(doc(db, "users", userData.email), {
+  const handleUpdate = async() => {
+    await updateDoc(doc(db, "users", userData.email), {
       age: userData.age,
       email: userData.email,
       name: userData.name,
@@ -30,11 +30,12 @@ const EditProfile = () => {
     })
       .then(() => {
         console.log("Editado");
-        alert("Información actualizada exitosamente.");
+        Alert.alert("Información actualizada exitosamente.");
+        navigation.goBack();
       })
       .catch((error) => {
         console.log("Error");
-        alert("Edición fallida.");
+        Alert.alert("Edición fallida.");
       });
   };
 

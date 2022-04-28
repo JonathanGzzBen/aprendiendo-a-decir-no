@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, setDoc, doc } from "firebase/firestore";
@@ -38,7 +38,10 @@ const Register = (props) => {
       });
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
-          props.navigation.navigate("Login");
+          sendEmailVerification(auth.currentUser).then(() => {
+            Alert.alert("Verifica tu cuenta a través del correo enviado")
+            props.navigation.navigate("Login");
+          });
         })
         .catch((error) => {
           const errorMessage = error.message;
