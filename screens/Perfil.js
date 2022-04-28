@@ -146,7 +146,6 @@ function Name() {
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
-      console.log("HOla");
       setUser({
         ...user,
       });
@@ -179,7 +178,6 @@ function Age() {
     const docSnap = await getDoc(docRef);
     const user = docSnap.data();
     if (docSnap.exists()) {
-      console.log("HOla");
       setUser({
         ...user,
       });

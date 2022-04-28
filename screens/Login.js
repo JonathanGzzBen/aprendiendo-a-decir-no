@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { useNavigation } from "@react-navigation/native";
@@ -20,7 +20,7 @@ const Login = (props) => {
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -29,6 +29,19 @@ const Login = (props) => {
       })
       .catch((error) => {
         Alert.alert("Credenciales incorrectas");
+      });
+  };
+
+  const forgotPassword = () => {
+    sendPasswordResetEmail(auth, email)
+      .then((function (user) {
+        alert('Please check your email...')
+      }))
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("No")
+        // ..
       });
   };
 
@@ -63,7 +76,7 @@ const Login = (props) => {
         <View style={styles.recover}>
           <Text
             style={styles.recoverText}
-            onPress={() => Alert.alert("Pantalla para recuperar contra")}
+            onPress={forgotPassword}
           >
             Olvidé mi contraseña
           </Text>

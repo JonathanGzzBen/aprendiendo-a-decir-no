@@ -12,13 +12,7 @@ import {
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  setDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, setDoc, doc } from "firebase/firestore";
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -62,7 +56,6 @@ const Register = (props) => {
             DEBES TENER MAS DE 18 AÑOS PARA REGISTRARTE
           </Text>
         </View>
-        <Image style={styles.Images} source={require("../src/img/user.png")} />
 
         <View style={{ paddingTop: 30 }}>
           <Text style={styles.Data}>Email</Text>

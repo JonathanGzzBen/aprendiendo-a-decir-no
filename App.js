@@ -8,6 +8,7 @@ import {
   Inclusion,
   Inicio,
   Introduccion,
+  OlvidarContra,
   Login,
   Perfil,
   Pubertad,
@@ -136,6 +137,15 @@ function MyStack() {
         component={Register}
         options={{
           title: "Registrarse",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="OlvidarContra"
+        component={OlvidarContra}
+        options={{
+          title: "Reestablecer Contraseña",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}
