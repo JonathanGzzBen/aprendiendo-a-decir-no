@@ -14,23 +14,19 @@ import { firebaseConfig } from "../database/firebase";
 import { getFirestore, updateDoc, doc } from "firebase/firestore";
 
 const EditProfile = () => {
-  const [email, setEmail] = useState("");
-  const [TutorName, setTutorName] = useState("");
-  const [TutorAge, setTutorAge] = useState("");
-  const [KidName, setKidName] = useState("");
-  const [KidAge, setKidAge] = useState("");
+  const [userData, setUserData] = useState(null);
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore();
 
   const handleUpdate = () => {
-    updateDoc(doc(db, "users", email.toLowerCase()), {
-      age: KidAge,
-      email: email,
-      name: KidName,
-      tutorAge: TutorAge,
-      tutorName: TutorName,
+    updateDoc(doc(db, "users", userData.email), {
+      age: userData.age,
+      email: userData.email,
+      name: userData.name,
+      tutorAge: userData.tutorAge,
+      tutorName: userData.tutorName,
     })
       .then(() => {
         console.log("Editado");
@@ -54,38 +50,54 @@ const EditProfile = () => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={email ? email : ''}
-            onChangeText={(text) => setEmail(text)}
+            value={userData ? userData.email : ""}
+            onChangeText={(text) => setUserData({ ...userData, email: text })}
           />
 
           <Text style={styles.Data}>Nombre del tutor</Text>
           <TextInput
+            placeholder="Nombre tutor"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
             style={styles.input}
-            value={TutorName}
-            onChangeText={(text) => setTutorName(text)}
+            value={userData ? userData.tutorName : ""}
+            onChangeText={(text) =>
+              setUserData({ ...userData, tutorName: text })
+            }
           />
 
           <Text style={styles.Data}>Edad del tutor</Text>
           <TextInput
+            placeholder="Edad tutor"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
             keyboardType="numeric"
             style={styles.input}
-            value={TutorAge}
-            onChangeText={(text) => setTutorAge(text)}
+            value={userData ? userData.tutorAge : ""}
+            onChangeText={(text) =>
+              setUserData({ ...userData, tutorAge: text })
+            }
           />
 
           <Text style={styles.Data}>Nombre del menor</Text>
           <TextInput
+            placeholder="Nombre menor"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
             style={styles.input}
-            value={KidName}
-            onChangeText={(text) => setKidName(text)}
+            value={userData ? userData.name : ""}
+            onChangeText={(text) => setUserData({ ...userData, name: text })}
           />
 
           <Text style={styles.Data}>Edad del menor</Text>
           <TextInput
+            placeholder="Edad menor"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
             keyboardType="numeric"
             style={styles.input}
-            value={KidAge}
-            onChangeText={(text) => setKidAge(text)}
+            value={userData ? userData.age : ""}
+            onChangeText={(text) => setUserData({ ...userData, age: text })}
           />
         </View>
         <TouchableOpacity onPress={handleUpdate} style={styles.button}>
