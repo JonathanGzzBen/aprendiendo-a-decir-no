@@ -8,24 +8,30 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
+import { getFirestore } from "firebase/firestore";
+import { getDatabase, ref, update } from "firebase/database";
 
 const EditProfile = () => {
-  const [userData, setUserData] = useState(null);
+  const [email, setEmail] = useState("");
+  const [TutorName, setTutorName] = useState("");
+  const [TutorAge, setTutorAge] = useState("");
+  const [KidName, setKidName] = useState("");
+  const [KidAge, setKidAge] = useState("");
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
-  const actualUser = auth.currentUser;
+  const db = getDatabase();
 
   const handleUpdate = () => {
-    updateProfile(actualUser, {
-      age: userData.age,
-      email: userData.email,
-      name: userData.name,
-      tutorAge: "Juanda Sr.",
-      tutorName: userData.tutorName,
+    update(ref(db, "users/" + email), {
+      age: KidAge,
+      email: email,
+      name: KidName,
+      tutorAge: TutorAge,
+      tutorName: TutorName,
     })
       .then(() => {
         console.log("Editado");
@@ -39,50 +45,51 @@ const EditProfile = () => {
 
   return (
     <ScrollView>
-      <View style={{ alignItems: "center", paddingTop: 30 }}>
+      <View>
+        <View style={{ alignItems: "center", paddingTop: 30 }}>
+          <Text style={styles.SubTitle}>
+            DEBES TENER MAS DE 18 AÑOS PARA REGISTRARTE
+          </Text>
+        </View>
+
         <View style={{ paddingTop: 30 }}>
           <Text style={styles.Data}>Email</Text>
           <TextInput
             style={styles.input}
-            value={userData ? userData.email : ""}
-            onChangeText={(text) => setUserData({ ...userData, email: text })}
+            value={email}
+            onChangeText={(text) => setEmail(text)}
           />
 
           <Text style={styles.Data}>Nombre del tutor</Text>
           <TextInput
             style={styles.input}
-            value={userData ? userData.tutorName : ""}
-            onChangeText={(text) =>
-              setUserData({ ...userData, tutorName: text })
-            }
+            value={TutorName}
+            onChangeText={(text) => setTutorName(text)}
           />
 
           <Text style={styles.Data}>Edad del tutor</Text>
           <TextInput
             keyboardType="numeric"
             style={styles.input}
-            vvalue={userData ? userData.tutorAge : ""}
-            onChangeText={(text) =>
-              setUserData({ ...userData, tutorAge: text })
-            }
+            value={TutorAge}
+            onChangeText={(text) => setTutorAge(text)}
           />
 
           <Text style={styles.Data}>Nombre del menor</Text>
           <TextInput
             style={styles.input}
-            value={userData ? userData.name : ""}
-            onChangeText={(text) => setUserData({ ...userData, name: text })}
+            value={KidName}
+            onChangeText={(text) => setKidName(text)}
           />
 
           <Text style={styles.Data}>Edad del menor</Text>
           <TextInput
             keyboardType="numeric"
             style={styles.input}
-            value={userData ? userData.age : ""}
-            onChangeText={(text) => setUserData({ ...userData, age: text })}
+            value={KidAge}
+            onChangeText={(text) => setKidAge(text)}
           />
         </View>
-
         <TouchableOpacity onPress={handleUpdate} style={styles.button}>
           <Text style={styles.textButton}>Actualizar información</Text>
         </TouchableOpacity>
