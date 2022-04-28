@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Avatar } from "react-native-elements";
+import Button from '../components/Button'
+import ModalBox from "../components/ModalBox";
 
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
@@ -18,6 +20,11 @@ const auth = getAuth(app);
 const db = getFirestore();
 
 const Perfil = () => {
+  const updateInfo = () => {
+    <ModalBox name="Si" value="no se"/>
+    console.log("Entra")
+  }
+
   return (
     <ScrollView style={s.safeContainer}>
       <View style={s.container}>
@@ -39,24 +46,32 @@ const Perfil = () => {
         </View>
       </View>
 
-      <View>
+      <View style={s.infoContainer}>
         <Text style={s.title}>Tu información</Text>
-        <Text style={s.camp}>
-          Email <Text style={s.res}>{Email()}</Text>
-        </Text>
-        <Text style={s.camp}>
-          Nombre del tutor <Text style={s.res}>{TutorName()}</Text>
-        </Text>
-        <Text style={s.camp}>
-          Edad del tutor <Text style={s.res}>{TutorAge() + " años"}</Text>
-        </Text>
-        <Text style={s.camp}>
-          Nombre del menor <Text style={s.res}>{Name()}</Text>
-        </Text>
-        <Text style={s.camp}>
-          Edad del menor <Text style={s.res}>{Age() + " años"}</Text>
-        </Text>
+        <View style={s.textContainer}>
+          <Text style={s.camp}>Correo electrónico</Text>
+          <Text style={s.res}>{Email()}</Text>
+        </View>
+        <View style={s.textContainer}>
+          <Text style={s.camp}>Nombre del tutor</Text>
+          <Text style={s.res}>{TutorName()}</Text>
+        </View>
+        <View style={s.textContainer}>
+          <Text style={s.camp}>Edad del tutor</Text>
+          <Text style={s.res}>{TutorAge() + " años"}</Text>
+        </View>
+        <View style={s.textContainer}>
+          <Text style={s.camp}>Nombre del menor</Text>
+          <Text style={s.res}>{Name()}</Text>
+        </View>
+        <View style={s.textContainer}>
+          <Text style={s.camp}>Edad del menor</Text>
+          <Text style={s.res}>{Age() + " años"}</Text>
+        </View>
       </View>
+      <Button 
+      onPress={updateInfo}
+      textButton="Editar información" />
     </ScrollView>
   );
 };
@@ -205,6 +220,15 @@ const s = StyleSheet.create({
     backgroundColor: "white",
   },
 
+  infoContainer: {
+    flex: 1,
+    padding: 15,
+    marginRight: 20,
+  },
+  textContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   bgContainer: {
     borderBottomWidth: 0.5,
     borderBottomColor: "#A0A0A0",
@@ -238,6 +262,7 @@ const s = StyleSheet.create({
   res: {
     fontSize: 15,
     paddingLeft: 20,
+    fontWeight: "bold",
     color: "#989898",
   },
 
@@ -261,12 +286,12 @@ const s = StyleSheet.create({
   userTitulo: {
     textAlign: "center",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 20,
   },
 
   userSubTitulo: {
     textAlign: "center",
-    fontSize: 11,
+    fontSize: 16,
     color: "#713C6A",
     paddingVertical: 5,
   },

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
-const Modal = (props) => {
+const ModalBox = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Modal;
+export default ModalBox;

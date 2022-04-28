@@ -296,10 +296,7 @@ function MyStack() {
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator
-      initialRouteName="Inicio"
-      drawerContent={(props) => <Menu {...props} />}
-    >
+    <Drawer.Navigator drawerContent={(props) => <Menu {...props} />}>
       <Drawer.Screen
         name="Inicio"
         component={Inicio}
@@ -367,8 +364,8 @@ function Menu(props) {
             <Avatar
               rounded
               size="large"
-              source={{uri : 'https://i.imgur.com/K4DfE5S.jpg'}}
-              overlayContainerStyle={{backgroundColor: '#713C6A'}}
+              source={{ uri: "https://i.imgur.com/K4DfE5S.jpg" }}
+              overlayContainerStyle={{ backgroundColor: "#713C6A" }}
             />
           </View>
           <View style={s.userNombre}>

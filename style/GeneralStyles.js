@@ -18,6 +18,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
+  forgotContainer: {
+    flex: 1,
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center"
+  },
   row: {
     flexDirection: "row",
     flexWrap: "wrap",

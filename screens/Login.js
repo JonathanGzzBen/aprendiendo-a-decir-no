@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -29,19 +29,6 @@ const Login = (props) => {
       })
       .catch((error) => {
         Alert.alert("Credenciales incorrectas");
-      });
-  };
-
-  const forgotPassword = () => {
-    sendPasswordResetEmail(auth, email)
-      .then((function (user) {
-        alert('Please check your email...')
-      }))
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("No")
-        // ..
       });
   };
 
@@ -76,7 +63,7 @@ const Login = (props) => {
         <View style={styles.recover}>
           <Text
             style={styles.recoverText}
-            onPress={forgotPassword}
+            onPress={() => props.navigation.navigate("OlvidarContra")}
           >
             Olvidé mi contraseña
           </Text>
