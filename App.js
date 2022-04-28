@@ -3,6 +3,7 @@ import {
   Acne,
   Configuracion,
   Contacto,
+  EditProfile,
   Hombres,
   Mujeres,
   Inclusion,
@@ -146,6 +147,15 @@ function MyStack() {
         component={OlvidarContra}
         options={{
           title: "Reestablecer Contraseña",
+          headerStyle: { backgroundColor: "#713C6A" },
+          headerTintColor: "white",
+        }}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{
+          title: "Editar perfil",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
         }}

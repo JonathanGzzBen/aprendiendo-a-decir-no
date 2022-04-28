@@ -1,6 +1,7 @@
 import Acne from "./Acne";
 import Configuracion from "./Configuracion";
 import Contacto from "./Contacto";
+import EditProfile from "./EditProfile";
 import Hombres from "./Hombres";
 import Mujeres from "./Mujeres";
 import Inclusion from "./Inclusion";
@@ -17,6 +18,7 @@ export {
   Acne,
   Configuracion,
   Contacto,
+  EditProfile,
   Hombres,
   Mujeres,
   Inclusion,

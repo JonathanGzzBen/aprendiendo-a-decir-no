@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Avatar } from "react-native-elements";
-import Button from '../components/Button'
-import ModalBox from "../components/ModalBox";
+import Button from "../components/Button";
 
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
@@ -19,11 +18,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore();
 
-const Perfil = () => {
+const Perfil = ({ navigation }) => {
   const updateInfo = () => {
-    <ModalBox name="Si" value="no se"/>
-    console.log("Entra")
-  }
+    navigation.navigate("EditProfile", { name: "EditProfile" });
+  };
 
   return (
     <ScrollView style={s.safeContainer}>
@@ -69,9 +67,7 @@ const Perfil = () => {
           <Text style={s.res}>{Age() + " años"}</Text>
         </View>
       </View>
-      <Button 
-      onPress={updateInfo}
-      textButton="Editar información" />
+      <Button onPress={updateInfo} textButton="Editar información" />
     </ScrollView>
   );
 };
