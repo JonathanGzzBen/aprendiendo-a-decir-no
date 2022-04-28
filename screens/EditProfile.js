@@ -29,12 +29,10 @@ const EditProfile = ({ navigation }) => {
       tutorName: userData.tutorName,
     })
       .then(() => {
-        console.log("Editado");
         Alert.alert("Información actualizada exitosamente.");
         navigation.goBack();
       })
       .catch((error) => {
-        console.log("Error");
         Alert.alert("Edición fallida.");
       });
   };
