@@ -13,6 +13,8 @@ import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "fir
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { useNavigation } from "@react-navigation/native";
+import InputBox from "../components/InputBox";
+import Button from "../components/Button";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -44,20 +46,14 @@ const Login = (props) => {
         </View>
 
         <View style={{ paddingTop: 30 }}>
-          <Text style={styles.Data}>Email</Text>
-          <TextInput
-            style={styles.input}
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-          />
-
-          <Text style={styles.Data}>Contraseña</Text>
-          <TextInput
-            style={styles.input}
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            secureTextEntry
-          />
+          <InputBox 
+          inputTitle="Email"
+          inputValue={email}
+          inputSet={(text) => setEmail(text)}/>
+          <InputBox 
+          inputTitle="Contraseña"
+          inputValue={password}
+          inputSet={(text) => setPassword(text)}/>
         </View>
 
         <View style={styles.recover}>
@@ -69,9 +65,9 @@ const Login = (props) => {
           </Text>
         </View>
 
-        <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.textButton}>Ingresar</Text>
-        </TouchableOpacity>
+        <Button 
+        textButton="Ingresar"
+        onPress={handleLogin} /> 
 
         <View style={styles.register}>
           <Text style={styles.registerText}>
