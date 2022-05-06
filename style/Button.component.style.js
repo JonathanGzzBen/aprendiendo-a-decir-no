@@ -16,6 +16,6 @@ export default StyleSheet.create({
   },
   textButton: {
     color: "white",
-    fontSize: hp('2%'),
+    fontSize: hp('2.5%'),
   },
 });

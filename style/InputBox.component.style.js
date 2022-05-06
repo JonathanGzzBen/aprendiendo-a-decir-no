@@ -11,7 +11,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
   },
   inputBox: {
-    height: hp("5%"),
+    height: hp("5.5%"),
     margin: 15,
     borderWidth: 1,
     padding: 10,

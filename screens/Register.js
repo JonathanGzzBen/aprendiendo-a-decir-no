@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { View, Text, Alert } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import InputBox from "../components/InputBox";
+import Button from "../components/Button";
+import styles from "../style/GeneralStyles";
+
 import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-} from "react-native";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, setDoc, doc } from "firebase/firestore";
@@ -39,7 +40,7 @@ const Register = (props) => {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           sendEmailVerification(auth.currentUser).then(() => {
-            Alert.alert("Verifica tu cuenta a través del correo enviado")
+            Alert.alert("Verifica tu cuenta a través del correo enviado");
             props.navigation.navigate("Login");
           });
         })
@@ -51,112 +52,51 @@ const Register = (props) => {
   };
 
   return (
-    <ScrollView>
+    <KeyboardAwareScrollView>
       <View>
         <View style={{ alignItems: "center", paddingTop: 30 }}>
-          <Text style={styles.SubTitle}>
+          <Text style={styles.subtitleUnder}>
             DEBES TENER MAS DE 18 AÑOS PARA REGISTRARTE
           </Text>
         </View>
 
         <View style={{ paddingTop: 30 }}>
-          <Text style={styles.Data}>Email</Text>
-          <TextInput
-            style={styles.input}
-            value={email}
-            onChangeText={(text) => setEmail(text)}
+          <InputBox
+            inputTitle="Email"
+            inputValue={email}
+            inputSet={(text) => setEmail(text)}
           />
-
-          <Text style={styles.Data}>Nombre del tutor</Text>
-          <TextInput
-            style={styles.input}
-            value={TutorName}
-            onChangeText={(text) => setTutorName(text)}
+          <InputBox
+            inputTitle="Nombre del tutor"
+            inputValue={TutorName}
+            inputSet={(text) => setTutorName(text)}
           />
-
-          <Text style={styles.Data}>Edad del tutor</Text>
-          <TextInput
-            keyboardType="numeric"
-            style={styles.input}
-            value={TutorAge}
-            onChangeText={(text) => setTutorAge(text)}
+          <InputBox
+            inputTitle="Edad del tutor"
+            inputValue={TutorAge}
+            inputSet={(text) => setTutorAge(text)}
           />
-
-          <Text style={styles.Data}>Nombre del menor</Text>
-          <TextInput
-            style={styles.input}
-            value={KidName}
-            onChangeText={(text) => setKidName(text)}
+          <InputBox
+            inputTitle="Nombre del menor"
+            inputValue={KidName}
+            inputSet={(text) => setKidName(text)}
           />
-
-          <Text style={styles.Data}>Edad del menor</Text>
-          <TextInput
-            keyboardType="numeric"
-            style={styles.input}
-            value={KidAge}
-            onChangeText={(text) => setKidAge(text)}
+          <InputBox
+            inputTitle="Edad del menor"
+            inputValue={KidAge}
+            inputSet={(text) => setKidAge(text)}
           />
-
-          <Text style={styles.Data}>Contraseña</Text>
-          <TextInput
-            style={styles.input}
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            secureTextEntry
+          <InputBox
+            inputTitle="Contraseña"
+            inputValue={password}
+            inputSet={(text) => setPassword(text)}
           />
         </View>
 
-        <TouchableOpacity onPress={handleRegister} style={styles.button}>
-          <Text style={styles.textButton}>Registrarse</Text>
-        </TouchableOpacity>
+        <Button textButton="Registrarse" onPress={handleRegister} /> 
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  Images: {
-    height: 125,
-    width: 125,
-    alignSelf: "center",
-  },
-  SubTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textDecorationLine: "underline",
-    textAlign: "center",
-    margin: 20,
-  },
-  Data: {
-    paddingLeft: 20,
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  input: {
-    height: 40,
-    margin: 15,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 10,
-    borderColor: "#713C6A",
-  },
-  button: {
-    backgroundColor: "#713C6A",
-    padding: 10,
-    alignSelf: "center",
-    borderRadius: 15,
-    margin: 30,
-    paddingLeft: 40,
-    paddingRight: 40,
-  },
-  textButton: {
-    color: "white",
-    fontSize: 20,
-  },
-});
 
 export default Register;

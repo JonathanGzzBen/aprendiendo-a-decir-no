@@ -41,12 +41,19 @@ export default StyleSheet.create({
     width: "100%",
   },
   subtitleItalic: {
-    fontSize: 16,
+    fontSize: hp("2%"),
     fontWeight: "bold",
     fontStyle: "italic",
     textAlign: "justify",
     width: "100%",
     marginTop: 15,
+  },
+  subtitleUnder: {
+    fontSize: hp("3%"),
+    fontWeight: "bold",
+    textDecorationLine: "underline",
+    textAlign: "center",
+    margin: 10,
   },
   textStyle: {
     fontSize: 14,
