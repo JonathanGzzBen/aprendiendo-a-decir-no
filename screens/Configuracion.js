@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonBottomStyle: {
-    height: "18%",
+    height: "20%",
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
