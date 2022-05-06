@@ -42,6 +42,8 @@ import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./database/firebase";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();

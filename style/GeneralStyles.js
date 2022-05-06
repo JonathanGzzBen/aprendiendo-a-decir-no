@@ -22,7 +22,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   row: {
     flexDirection: "row",
@@ -73,6 +73,11 @@ export default StyleSheet.create({
     height: hp("30%"),
     margin: 15,
   },
+  mainImageLogin: {
+    width: wp("100%"),
+    height: hp("20%"),
+    margin: 10,
+  },
   button: {
     backgroundColor: "#713C6A",
     padding: 12,
@@ -98,9 +103,25 @@ export default StyleSheet.create({
     alignItems: "flex-start",
     marginTop: 10,
   },
+  linkRecoverContainer: {
+    alignItems: "flex-end",
+    paddingRight: 30,
+  },
   linkText: {
     color: "#713C6A",
+    fontSize: hp('1.9%'),
     textDecorationLine: "underline",
     fontWeight: "bold",
+  },
+  registerContainer: {
+    alignItems: "center",
+    marginTop: 25,
+  },
+  registerText: {
+    fontSize: hp('1.9%'),
+    color: "darkgray",
+  },
+  registerLink: {
+    color: "#713C6A",
   },
 });
