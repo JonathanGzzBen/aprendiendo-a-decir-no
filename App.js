@@ -310,7 +310,7 @@ function MyDrawer() {
   return (
     <Drawer.Navigator drawerContent={(props) => <Menu {...props} />}>
       <Drawer.Screen
-        name="Inicio"
+        name="Home"
         component={Inicio}
         options={{
           title: "Inicio",

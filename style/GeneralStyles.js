@@ -18,11 +18,11 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  forgotContainer: {
+  forgot: {
     flex: 1,
     backgroundColor: "white",
-    alignItems: "center",
     justifyContent: "center",
+    margin: 10
   },
   row: {
     flexDirection: "row",
@@ -56,7 +56,7 @@ export default StyleSheet.create({
     margin: 10,
   },
   textStyle: {
-    fontSize: 14,
+    fontSize: hp("2%"),
     flex: 0.2,
     fontStyle: "normal",
     paddingTop: 15,

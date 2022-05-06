@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     margin: 10,
     padding: 20,
+    height: '100%'
   },
   safeContainer: {
     flex: 1,
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   buttonStyle: {
-    height: "18%",
+    height: "10%",
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",

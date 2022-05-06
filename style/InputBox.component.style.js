@@ -7,10 +7,11 @@ import {
 export default StyleSheet.create({
   inputTitle: {
     paddingLeft: 20,
-    fontSize: 16,
+    fontSize: hp("2.2%"),
     fontWeight: "bold",
   },
   inputBox: {
+    width: wp("90%"),
     height: hp("5.5%"),
     margin: 15,
     borderWidth: 1,

@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, TextInput, Image, Alert } from "react-native";
+import {
+  View,
+  Text,
+  KeyboardAvoidingView,
+  TextInput,
+  Image,
+  Alert,
+} from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 import Button from "../components/Button";
 import styles from "../style/GeneralStyles";
 import box from "../style/InputBox.component.style";
@@ -28,7 +37,10 @@ const Login = (props) => {
   };
 
   return (
-    <ScrollView style={styles.safeContainer}>
+    <KeyboardAwareScrollView
+      style={styles.safeContainer}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+    >
       <View>
         <Image
           style={styles.mainImageLogin}
@@ -44,15 +56,15 @@ const Login = (props) => {
             style={box.inputBox}
             value={email}
             onChangeText={(text) => setEmail(text)}
-            importantForAutofill='yes'
-            autoCompleteType='email'
+            importantForAutofill="yes"
+            autoCompleteType="email"
           />
           <Text style={box.inputTitle}>Contraseña</Text>
           <TextInput
             style={box.inputBox}
             value={password}
             onChangeText={(text) => setPassword(text)}
-            importantForAutofill='yes'
+            importantForAutofill="yes"
             secureTextEntry={true}
           />
         </View>
@@ -80,7 +92,7 @@ const Login = (props) => {
           </Text>
         </View>
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 
