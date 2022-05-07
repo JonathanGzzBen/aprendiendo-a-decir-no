@@ -45,14 +45,14 @@ const Configuracion = ({ navigation }) => {
           onPress={() => navigation.navigate("Perfil", { name: "Perfil" })}
         >
           <Image
-            source={require("../src/img/ninos.png")}
+            source={{uri: 'https://i.imgur.com/A5hSs7b.png'}}
             style={styles.buttonImageIconStyle}
           />
           <View syle={styles.containerText}>
             <Text style={styles.buttonTitleStyle}>Perfil</Text>
           </View>
           <Image
-            source={require("../src/img/flecha.png")}
+            source={{uri: 'https://i.imgur.com/8rkJHN0.png'}}
             style={styles.buttonImageIconStyle}
           />
         </TouchableOpacity>
@@ -64,14 +64,14 @@ const Configuracion = ({ navigation }) => {
           activeOpacity={0.5}
         >
           <Image
-            source={require("../src/img/sesion.png")}
+            source={{uri: "https://i.imgur.com/zIXdblu.png"}}
             style={styles.buttonImageIconStyle}
           />
           <View syle={styles.containerText}>
             <Text style={styles.buttonTitleStyle}>Cerrar sesión</Text>
           </View>
           <Image
-            source={require("../src/img/flecha.png")}
+            source={{uri: 'https://i.imgur.com/8rkJHN0.png'}}
             style={styles.buttonImageIconStyle}
           />
         </TouchableOpacity>

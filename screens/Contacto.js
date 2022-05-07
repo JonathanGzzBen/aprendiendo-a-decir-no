@@ -14,7 +14,7 @@ const Contacto = () => {
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
         <Image
-          source={require("../src/img/kids.jpg")}
+          source={{uri: 'https://i.imgur.com/KF45Hzp.jpg'}}
           style={styles.mainImageStyle}
         />
         <Text style={styles.title}>Líneas de contacto</Text>
