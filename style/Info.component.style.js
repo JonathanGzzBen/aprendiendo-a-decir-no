@@ -17,7 +17,7 @@ export default StyleSheet.create({
     textAlign: "center",
   },
   textStyle: {
-    fontSize: hp('1.7%'),
+    fontSize: hp('2%'),
     fontStyle: "normal",
     paddingTop: 15,
     letterSpacing: 1.3,

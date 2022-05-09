@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Avatar } from "react-native-elements";
 
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, getDoc, doc } from "firebase/firestore";

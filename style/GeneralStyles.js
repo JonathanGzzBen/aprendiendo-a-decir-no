@@ -29,19 +29,19 @@ export default StyleSheet.create({
     flexWrap: "wrap",
   },
   title: {
-    fontSize: hp("2.7%"),
+    fontSize: hp("3%"),
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,
   },
   subtitle: {
-    fontSize: hp("2%"),
+    fontSize: hp("2.4%"),
     fontWeight: "bold",
     textAlign: "justify",
     width: "100%",
   },
   subtitleItalic: {
-    fontSize: hp("2%"),
+    fontSize: hp("2.4%"),
     fontWeight: "bold",
     fontStyle: "italic",
     textAlign: "justify",
@@ -56,7 +56,7 @@ export default StyleSheet.create({
     margin: 10,
   },
   textStyle: {
-    fontSize: hp("2%"),
+    fontSize: hp("2.4%"),
     flex: 0.2,
     fontStyle: "normal",
     paddingTop: 15,
@@ -65,7 +65,7 @@ export default StyleSheet.create({
   },
   mainImageStyle: {
     width: wp("85%"),
-    height: hp("20%"),
+    height: hp("24%"),
     margin: 10,
   },
   mainImageMH: {

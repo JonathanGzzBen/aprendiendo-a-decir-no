@@ -29,7 +29,7 @@ export default StyleSheet.create({
     margin: 20,
   },
   buttonTextStyle: {
-    fontSize: hp('1.35%'),
+    fontSize: hp('1.7%'),
     fontStyle: "normal",
     lineHeight: 20,
     textAlign: "justify",

@@ -8,12 +8,12 @@ const Hombres = ({ navigation }) => {
     <ScrollView style={styles.safeContainer}>
       <View style={styles.container}>
         <Image
-          source={{ uri: "https://i.imgur.com/9Ar5PzF.png" }}
+          source={{ uri: "https://i.imgur.com/OM3z33J.png" }}
           style={styles.mainImageStyle}
         />
         <Text style={styles.title}>Información sobre el hombre</Text>
         <ImageButtonMH
-          buttonImage="https://i.imgur.com/Lb067xH.png"
+          buttonImage="https://i.imgur.com/FbWNz3z.png"
           buttonTitle="Cambios fisícos"
           buttonText="¿Qué ocurre en el cuerpo del hombre al llegar a la pubertad?"
           onPress={() =>

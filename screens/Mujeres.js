@@ -8,7 +8,7 @@ const Mujeres = ({ navigation }) => {
       <View style={styles.container}>
         <Image
           style={styles.mainImageStyle}
-          source={{ uri: "https://i.imgur.com/7YvKagT.jpg" }}
+          source={{ uri: "https://i.imgur.com/xrw0dVf.png" }}
         />
         <Text style={styles.title}>Información sobre la mujer</Text>
         <ImageButtonMH
