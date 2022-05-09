@@ -28,6 +28,13 @@ export default StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
   },
+  divider: {
+    backgroundColor: "#c4c4c4",
+    width: "100%",
+    height: hp("0.2%"),
+    margin: 30,
+    alignSelf: "center",
+  },
   title: {
     fontSize: hp("3%"),
     fontWeight: "bold",

@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, Image } from "react-native";
+import { Text, TouchableOpacity, Image } from "react-native";
 import styles from "../style/ImageButton.component.style";
 import React from "react";
 

@@ -29,7 +29,7 @@ const OlvidarContra = ({ navigation }) => {
 
   return (
     <View  style={styles.safeContainer}>
-      <View style={styles.forgotContainer}>
+      <View style={styles.forgot}>
         <InputBox
           inputTitle="Ingresa tu correo electrónico de tu cuenta"
           inputValue={email}

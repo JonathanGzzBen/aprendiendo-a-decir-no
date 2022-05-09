@@ -14,27 +14,25 @@ import { firebaseConfig } from "../database/firebase";
 import { getFirestore, updateDoc, doc } from "firebase/firestore";
 
 const EditProfile = ({ navigation, route }) => {
-  const [userData, setUserData] = useState(null);
-  const [email, setEmail] = useState(route.params.user.email)
-  const [tutorName, setTutorName] = useState(route.params.user.tutorName)
-  const [tutorAge, setTutorAge] = useState(route.params.user.tutorAge)
-  const [name, setName] = useState(route.params.user.name)
-  const [age, setAge] = useState(route.params.user.age)
+  const [email, setEmail] = useState(route.params.user.email);
+  const [tutorName, setTutorName] = useState(route.params.user.tutorName);
+  const [tutorAge, setTutorAge] = useState(route.params.user.tutorAge);
+  const [name, setName] = useState(route.params.user.name);
+  const [age, setAge] = useState(route.params.user.age);
 
-  const user = route.params.user
-  console.log(user)
+  const user = route.params.user;
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore();
 
-  const handleUpdate = async() => {
+  const handleUpdate = async () => {
     await updateDoc(doc(db, "users", email), {
-      age: userData.age,
-      email: userData.email,
-      name: userData.name,
-      tutorAge: userData.tutorAge,
-      tutorName: userData.tutorName,
+      age: age,
+      email: email,
+      name: name,
+      tutorAge: tutorAge,
+      tutorName: tutorName,
     })
       .then(() => {
         Alert.alert("Información actualizada exitosamente.");
@@ -57,9 +55,8 @@ const EditProfile = ({ navigation, route }) => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={userData ? userData.email : email}
-            onChangeText={(text) => setEmail({ ...userData, email: text })}
-            
+            value={email}
+            onChangeText={(text) => setEmail(text)}
           />
 
           <Text style={styles.Data}>Nombre del tutor</Text>
@@ -68,10 +65,8 @@ const EditProfile = ({ navigation, route }) => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={userData ? userData.tutorName : tutorName}
-            onChangeText={(text) =>
-              setTutorName({ ...userData, tutorName: text })
-            }
+            value={tutorName}
+            onChangeText={(text) => setTutorName(text)}
           />
 
           <Text style={styles.Data}>Edad del tutor</Text>
@@ -81,10 +76,8 @@ const EditProfile = ({ navigation, route }) => {
             autoCorrect={false}
             keyboardType="numeric"
             style={styles.input}
-            value={userData ? userData.tutorAge : tutorAge}
-            onChangeText={(text) =>
-              setTutorAge({ ...userData, tutorAge: text })
-            }
+            value={tutorAge}
+            onChangeText={(text) => setTutorAge(text)}
           />
 
           <Text style={styles.Data}>Nombre del menor</Text>
@@ -93,8 +86,8 @@ const EditProfile = ({ navigation, route }) => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={userData ? userData.name : name}
-            onChangeText={(text) => setName({ ...userData, name: text })}
+            value={name}
+            onChangeText={(text) => setName(text)}
           />
 
           <Text style={styles.Data}>Edad del menor</Text>
@@ -104,8 +97,8 @@ const EditProfile = ({ navigation, route }) => {
             autoCorrect={false}
             keyboardType="numeric"
             style={styles.input}
-            value={userData ? userData.age : age}
-            onChangeText={(text) => setAge({ ...userData, age: text })}
+            value={age}
+            onChangeText={(text) => setAge(text)}
           />
         </View>
         <TouchableOpacity onPress={handleUpdate} style={styles.button}>

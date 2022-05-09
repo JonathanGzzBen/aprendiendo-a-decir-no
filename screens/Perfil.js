@@ -26,6 +26,7 @@ const Perfil = ({ navigation }) => {
     tutorName: "",
     tutorAge: "",
   });
+
   const updateInfo = () => {
     User()
     navigation.navigate("EditProfile", { user: user });
