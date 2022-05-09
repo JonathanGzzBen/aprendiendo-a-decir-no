@@ -37,6 +37,7 @@ export default StyleSheet.create({
     color: "#fff",
   },
   drawerLabel: {
-    fontSize: hp("1.8%"),
+    fontSize: hp("2%"),
+    marginLeft: -15,
   },
 });

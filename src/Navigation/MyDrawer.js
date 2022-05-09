@@ -20,81 +20,81 @@ const MyDrawer = () => {
       drawerContent={(props) => <CustomDrawer {...props} />}
       screenOptions={{
         drawerLabelStyle: styles.drawerLabel,
-        drawerActiveBackgroundColor: '#713C6A',
-        drawerActiveTintColor: '#fff',
-        drawerInactiveTintColor: '#333',
+        drawerActiveBackgroundColor: "#713C6A",
+        drawerActiveTintColor: "#fff",
+        drawerInactiveTintColor: "#333",
       }}
     >
       <Drawer.Screen
         name="Home"
         component={Inicio}
         options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="home" size={22} color={color} />
+          ),
           title: "Inicio",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
-          drawerIcon: ({ color }) => {
-            <Ionicons name="home-outline" size={22} color={color} />;
-          },
         }}
       />
       <Drawer.Screen
         name="Women"
         component={Mujeres}
         options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="female" size={22} color={color} />
+          ),
           title: "Mujeres",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
-          drawerIcon: ({ color }) => {
-            <Ionicons name="female-outline" size={22} color={color} />;
-          },
         }}
       />
       <Drawer.Screen
         name="Men"
         component={Hombres}
         options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="male" size={22} color={color} />
+          ),
           title: "Hombres",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
-          drawerIcon: ({ color }) => {
-            <Ionicons name="male-outline" size={22} color={color} />;
-          },
         }}
       />
       <Drawer.Screen
         name="Diversity"
         component={Inclusion}
         options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="heart-circle" size={22} color={color} />
+          ),
           title: "Inclusión",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
-          drawerIcon: ({ color }) => {
-            <Ionicons name="heart-circle-outline" size={22} color={color} />;
-          },
         }}
       />
       <Drawer.Screen
         name="Contact"
         component={Contacto}
         options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="mail" size={22} color={color} />
+          ),
           title: "Contacto",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
-          drawerIcon: ({ color }) => {
-            <Ionicons name="mail-outline" size={22} color={color} />;
-          },
         }}
       />
       <Drawer.Screen
         name="Settings"
         component={Configuracion}
         options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="cog" size={22} color={color} />
+          ),
           title: "Configuración",
           headerStyle: { backgroundColor: "#713C6A" },
           headerTintColor: "white",
-          drawerIcon: ({ color }) => {
-            <Ionicons name="cog-outline" size={22} color={color} />;
-          },
         }}
       />
     </Drawer.Navigator>
