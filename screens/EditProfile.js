@@ -13,15 +13,23 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, updateDoc, doc } from "firebase/firestore";
 
-const EditProfile = ({ navigation }) => {
+const EditProfile = ({ navigation, route }) => {
   const [userData, setUserData] = useState(null);
+  const [email, setEmail] = useState(route.params.user.email)
+  const [tutorName, setTutorName] = useState(route.params.user.tutorName)
+  const [tutorAge, setTutorAge] = useState(route.params.user.tutorAge)
+  const [name, setName] = useState(route.params.user.name)
+  const [age, setAge] = useState(route.params.user.age)
+
+  const user = route.params.user
+  console.log(user)
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore();
 
   const handleUpdate = async() => {
-    await updateDoc(doc(db, "users", userData.email), {
+    await updateDoc(doc(db, "users", email), {
       age: userData.age,
       email: userData.email,
       name: userData.name,
@@ -49,8 +57,9 @@ const EditProfile = ({ navigation }) => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={userData ? userData.email : ""}
-            onChangeText={(text) => setUserData({ ...userData, email: text })}
+            value={userData ? userData.email : email}
+            onChangeText={(text) => setEmail({ ...userData, email: text })}
+            
           />
 
           <Text style={styles.Data}>Nombre del tutor</Text>
@@ -59,9 +68,9 @@ const EditProfile = ({ navigation }) => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={userData ? userData.tutorName : ""}
+            value={userData ? userData.tutorName : tutorName}
             onChangeText={(text) =>
-              setUserData({ ...userData, tutorName: text })
+              setTutorName({ ...userData, tutorName: text })
             }
           />
 
@@ -72,9 +81,9 @@ const EditProfile = ({ navigation }) => {
             autoCorrect={false}
             keyboardType="numeric"
             style={styles.input}
-            value={userData ? userData.tutorAge : ""}
+            value={userData ? userData.tutorAge : tutorAge}
             onChangeText={(text) =>
-              setUserData({ ...userData, tutorAge: text })
+              setTutorAge({ ...userData, tutorAge: text })
             }
           />
 
@@ -84,8 +93,8 @@ const EditProfile = ({ navigation }) => {
             placeholderTextColor="#666666"
             autoCorrect={false}
             style={styles.input}
-            value={userData ? userData.name : ""}
-            onChangeText={(text) => setUserData({ ...userData, name: text })}
+            value={userData ? userData.name : name}
+            onChangeText={(text) => setName({ ...userData, name: text })}
           />
 
           <Text style={styles.Data}>Edad del menor</Text>
@@ -95,8 +104,8 @@ const EditProfile = ({ navigation }) => {
             autoCorrect={false}
             keyboardType="numeric"
             style={styles.input}
-            value={userData ? userData.age : ""}
-            onChangeText={(text) => setUserData({ ...userData, age: text })}
+            value={userData ? userData.age : age}
+            onChangeText={(text) => setAge({ ...userData, age: text })}
           />
         </View>
         <TouchableOpacity onPress={handleUpdate} style={styles.button}>

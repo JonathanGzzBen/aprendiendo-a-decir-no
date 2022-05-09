@@ -19,8 +19,35 @@ const auth = getAuth(app);
 const db = getFirestore();
 
 const Perfil = ({ navigation }) => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    age: "",
+    tutorName: "",
+    tutorAge: "",
+  });
   const updateInfo = () => {
-    navigation.navigate("EditProfile", { name: "EditProfile" });
+    User()
+    navigation.navigate("EditProfile", { user: user });
+  };
+
+  const User = () => {
+    const actualUser = auth.currentUser;
+
+    const getUserById = async (id) => {
+      const docRef = doc(db, "users", id);
+      const docSnap = await getDoc(docRef);
+      const user1 = docSnap.data();
+      if (docSnap.exists()) {
+        setUser({
+          ...user1,
+        });
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    getUserById(actualUser.email);
   };
 
   return (
