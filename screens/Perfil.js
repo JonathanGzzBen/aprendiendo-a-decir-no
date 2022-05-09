@@ -28,7 +28,7 @@ const Perfil = ({ navigation }) => {
   });
 
   const updateInfo = () => {
-    User()
+    User();
     navigation.navigate("EditProfile", { user: user });
   };
 
@@ -51,6 +51,10 @@ const Perfil = ({ navigation }) => {
     getUserById(actualUser.email);
   };
 
+  useEffect(() => {
+    User();
+  }, []);
+  
   return (
     <ScrollView style={s.safeContainer}>
       <View style={s.container}>
@@ -65,8 +69,8 @@ const Perfil = ({ navigation }) => {
               />
             </View>
             <View style={s.userNombre}>
-              <Text style={s.userTitulo}>{Name()}</Text>
-              <Text style={s.userSubTitulo}>{Age() + " años"}</Text>
+              <Text style={s.userTitulo}>{user && user.name}</Text>
+              <Text style={s.userSubTitulo}>{user && user.age + " años"}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -76,162 +80,29 @@ const Perfil = ({ navigation }) => {
         <Text style={s.title}>Tu información</Text>
         <View style={s.textContainer}>
           <Text style={s.camp}>Correo electrónico</Text>
-          <Text style={s.res}>{Email()}</Text>
+          <Text style={s.res}>{user && user.email}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Nombre del tutor</Text>
-          <Text style={s.res}>{TutorName()}</Text>
+          <Text style={s.res}>{user && user.tutorName}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Edad del tutor</Text>
-          <Text style={s.res}>{TutorAge() + " años"}</Text>
+          <Text style={s.res}>{user && user.tutorAge + " años"}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Nombre del menor</Text>
-          <Text style={s.res}>{Name()}</Text>
+          <Text style={s.res}>{user && user.name}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Edad del menor</Text>
-          <Text style={s.res}>{Age() + " años"}</Text>
+          <Text style={s.res}>{user && user.age + " años"}</Text>
         </View>
       </View>
       <Button onPress={updateInfo} textButton="Editar información" />
     </ScrollView>
   );
 };
-
-function Email() {
-  const actualUser = auth.currentUser;
-  return actualUser.email;
-}
-
-function TutorName() {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    age: "",
-    tutorName: "",
-    tutorAge: "",
-  });
-
-  const actualUser = auth.currentUser;
-
-  const getUserById = async (id) => {
-    const docRef = doc(db, "users", id);
-    const docSnap = await getDoc(docRef);
-    const user = docSnap.data();
-    if (docSnap.exists()) {
-      setUser({
-        ...user,
-      });
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  };
-
-  useEffect(() => {
-    getUserById(actualUser.email);
-  }, []);
-
-  return user.tutorName;
-}
-
-function TutorAge() {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    age: "",
-    tutorName: "",
-    tutorAge: "",
-  });
-
-  const actualUser = auth.currentUser;
-
-  const getUserById = async (id) => {
-    const docRef = doc(db, "users", id);
-    const docSnap = await getDoc(docRef);
-    const user = docSnap.data();
-    if (docSnap.exists()) {
-      setUser({
-        ...user,
-      });
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  };
-
-  useEffect(() => {
-    getUserById(actualUser.email);
-  }, []);
-
-  return user.tutorAge;
-}
-
-function Name() {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    age: "",
-    tutorName: "",
-    tutorAge: "",
-  });
-
-  const actualUser = auth.currentUser;
-
-  const getUserById = async (id) => {
-    const docRef = doc(db, "users", id);
-    const docSnap = await getDoc(docRef);
-    const user = docSnap.data();
-    if (docSnap.exists()) {
-      setUser({
-        ...user,
-      });
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  };
-
-  useEffect(() => {
-    getUserById(actualUser.email);
-  }, []);
-
-  return user.name;
-}
-
-function Age() {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    age: "",
-    tutorName: "",
-    tutorAge: "",
-  });
-
-  const actualUser = auth.currentUser;
-
-  const getUserById = async (id) => {
-    const docRef = doc(db, "users", id);
-    const docSnap = await getDoc(docRef);
-    const user = docSnap.data();
-    if (docSnap.exists()) {
-      setUser({
-        ...user,
-      });
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  };
-
-  useEffect(() => {
-    getUserById(actualUser.email);
-  }, []);
-
-  return user.age;
-}
 
 const s = StyleSheet.create({
   container: {
