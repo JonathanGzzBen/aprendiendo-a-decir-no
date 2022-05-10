@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   View,
   Text,
@@ -9,51 +9,14 @@ import {
 import { Avatar } from "react-native-elements";
 import Button from "../components/Button";
 
-import { getAuth } from "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../database/firebase";
-import { getFirestore, getDoc, doc } from "firebase/firestore";
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore();
+import { UserContext } from "../context/UserContext";
 
 const Perfil = ({ navigation }) => {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    age: "",
-    tutorName: "",
-    tutorAge: "",
-  });
+  const [user, setUser] = useContext(UserContext);
 
   const updateInfo = () => {
-    User();
     navigation.navigate("EditProfile", { user: user });
   };
-
-  const User = () => {
-    const actualUser = auth.currentUser;
-
-    const getUserById = async (id) => {
-      const docRef = doc(db, "users", id);
-      const docSnap = await getDoc(docRef);
-      const user1 = docSnap.data();
-      if (docSnap.exists()) {
-        setUser({
-          ...user1,
-        });
-      } else {
-        console.log("No such document!");
-      }
-    };
-
-    getUserById(actualUser.email);
-  };
-
-  useEffect(() => {
-    User();
-  }, []);
   
   return (
     <ScrollView style={s.safeContainer}>
@@ -69,8 +32,8 @@ const Perfil = ({ navigation }) => {
               />
             </View>
             <View style={s.userNombre}>
-              <Text style={s.userTitulo}>{user && user.name}</Text>
-              <Text style={s.userSubTitulo}>{user && user.age + " años"}</Text>
+              <Text style={s.userTitulo}>{user.name}</Text>
+              <Text style={s.userSubTitulo}>{user.age + " años"}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -80,23 +43,23 @@ const Perfil = ({ navigation }) => {
         <Text style={s.title}>Tu información</Text>
         <View style={s.textContainer}>
           <Text style={s.camp}>Correo electrónico</Text>
-          <Text style={s.res}>{user && user.email}</Text>
+          <Text style={s.res}>{user.email}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Nombre del tutor</Text>
-          <Text style={s.res}>{user && user.tutorName}</Text>
+          <Text style={s.res}>{user.tutorName}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Edad del tutor</Text>
-          <Text style={s.res}>{user && user.tutorAge + " años"}</Text>
+          <Text style={s.res}>{user.tutorAge + " años"}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Nombre del menor</Text>
-          <Text style={s.res}>{user && user.name}</Text>
+          <Text style={s.res}>{user.name}</Text>
         </View>
         <View style={s.textContainer}>
           <Text style={s.camp}>Edad del menor</Text>
-          <Text style={s.res}>{user && user.age + " años"}</Text>
+          <Text style={s.res}>{user.age + " años"}</Text>
         </View>
       </View>
       <Button onPress={updateInfo} textButton="Editar información" />

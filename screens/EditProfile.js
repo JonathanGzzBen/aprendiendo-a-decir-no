@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
@@ -12,15 +12,17 @@ import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, updateDoc, doc } from "firebase/firestore";
+import { UserContext } from "../context/UserContext";
 
 const EditProfile = ({ navigation, route }) => {
+  const [user, setUser] = useContext(UserContext);
   const [email, setEmail] = useState(route.params.user.email);
   const [tutorName, setTutorName] = useState(route.params.user.tutorName);
   const [tutorAge, setTutorAge] = useState(route.params.user.tutorAge);
   const [name, setName] = useState(route.params.user.name);
   const [age, setAge] = useState(route.params.user.age);
 
-  const user = route.params.user;
+  const editUser = route.params.user;
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
@@ -36,6 +38,14 @@ const EditProfile = ({ navigation, route }) => {
     })
       .then(() => {
         Alert.alert("Información actualizada exitosamente.");
+        setUser({
+          ... user,
+          age: age,
+          email: email,
+          name: name,
+          tutorAge: tutorAge,
+          tutorName: tutorName,
+        });
         navigation.goBack();
       })
       .catch((error) => {
