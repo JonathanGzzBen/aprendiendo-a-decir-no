@@ -6,7 +6,7 @@ import {
 
 export default StyleSheet.create({
   buttonImage: {
-    height: hp("15%"),
+    height: hp("16.5%"),
     width: "100%",
     alignContent: "center",
     borderWidth: 2,
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     marginBottom: 30,
   },
   caption: {
-    fontSize: hp("2%"),
+    fontSize: hp("2.2%"),
     textAlign:'center',
     fontStyle: "normal",
     paddingTop: 25,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     height: hp("14.5%"),
     width: "100%",
     resizeMode: "contain",
-    alignContent: "center",
+    alignItems: "center",
     justifyContent: "center",
 },
 });
