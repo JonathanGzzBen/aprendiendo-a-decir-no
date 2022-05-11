@@ -63,7 +63,7 @@ const EditProfile = ({ navigation, route }) => {
           <TextInput
             placeholder="Email"
             placeholderTextColor="#666666"
-            autoCorrect={false}
+            autoCorrect={true}
             style={styles.input}
             value={email}
             onChangeText={(text) => setEmail(text)}
@@ -73,7 +73,7 @@ const EditProfile = ({ navigation, route }) => {
           <TextInput
             placeholder="Nombre tutor"
             placeholderTextColor="#666666"
-            autoCorrect={false}
+            autoCorrect={true}
             style={styles.input}
             value={tutorName}
             onChangeText={(text) => setTutorName(text)}
@@ -83,7 +83,7 @@ const EditProfile = ({ navigation, route }) => {
           <TextInput
             placeholder="Edad tutor"
             placeholderTextColor="#666666"
-            autoCorrect={false}
+            autoCorrect={true}
             keyboardType="numeric"
             style={styles.input}
             value={tutorAge}
@@ -94,7 +94,7 @@ const EditProfile = ({ navigation, route }) => {
           <TextInput
             placeholder="Nombre menor"
             placeholderTextColor="#666666"
-            autoCorrect={false}
+            autoCorrect={true}
             style={styles.input}
             value={name}
             onChangeText={(text) => setName(text)}
@@ -104,7 +104,7 @@ const EditProfile = ({ navigation, route }) => {
           <TextInput
             placeholder="Edad menor"
             placeholderTextColor="#666666"
-            autoCorrect={false}
+            autoCorrect={true}
             keyboardType="numeric"
             style={styles.input}
             value={age}
