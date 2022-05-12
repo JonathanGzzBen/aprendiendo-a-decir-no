@@ -33,7 +33,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
   },
   res: {
-    fontSize: hp('2.1%'),
+    fontSize: hp('1.8%'),
     paddingLeft: 20,
     fontWeight: "600",
     color: "#101010",

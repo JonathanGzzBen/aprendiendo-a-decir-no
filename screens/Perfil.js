@@ -32,23 +32,23 @@ const Perfil = ({ navigation }) => {
         <Text style={styles.title}>Tu información</Text>
 
         <View style={styles.menuItem}>
-          <Ionicons name="mail" size={30} color={"#005C9A"} />
+          <Ionicons name="mail" size={25} color={"#005C9A"} />
           <Text style={styles.res}>{user.email}</Text>
         </View>
         <View style={styles.menuItem}>
-          <Ionicons name="man" size={30} color={"#00C895"} />
+          <Ionicons name="man" size={25} color={"#00C895"} />
           <Text style={styles.res}>{user.tutorName}</Text>
         </View>
         <View style={styles.menuItem}>
-          <FontAwesome name="birthday-cake" size={30} color={"#00C895"} />
+          <FontAwesome name="birthday-cake" size={25} color={"#00C895"} />
           <Text style={styles.res}>{user.tutorAge + " años"}</Text>
         </View>
         <View style={styles.menuItem}>
-          <FontAwesome name="child" size={30} color={"#7D79AA"} />
+          <FontAwesome name="child" size={25} color={"#7D79AA"} />
           <Text style={styles.res}>{user.name}</Text>
         </View>
         <View style={styles.menuItem}>
-          <FontAwesome name="birthday-cake" size={30} color={"#7D79AA"} />
+          <FontAwesome name="birthday-cake" size={25} color={"#7D79AA"} />
           <Text style={styles.res}>{user.age + " años"}</Text>
         </View>
         <Button onPress={updateInfo} textButton="Editar información" />

@@ -124,6 +124,7 @@ const EditProfile = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
+    justifyContent: 'center',
     padding: 30,
   },
   Data: {
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   input: {
-    width: wp("91%"),
+    width: wp("78%"),
     height: hp("5.5%"),
     margin: 15,
     borderWidth: 1,

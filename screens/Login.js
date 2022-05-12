@@ -69,15 +69,16 @@ const Login = (props) => {
             style={box.inputBox}
             value={email}
             onChangeText={(text) => setEmail(text)}
-            importantForAutofill="yes"
-            autoCompleteType="email"
+            autoComplete="email"
+            autoCorrect
           />
           <Text style={box.inputTitle}>Contraseña</Text>
           <TextInput
             style={box.inputBox}
             value={password}
             onChangeText={(text) => setPassword(text)}
-            importantForAutofill="yes"
+            autoComplete="password"
+            autoCorrect
             secureTextEntry={true}
           />
         </View>
