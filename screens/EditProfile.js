@@ -5,14 +5,18 @@ import {
   ScrollView,
   StyleSheet,
   TextInput,
-  TouchableOpacity,
   Alert,
 } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../database/firebase";
 import { getFirestore, updateDoc, doc } from "firebase/firestore";
 import { UserContext } from "../context/UserContext";
+import Button from "../components/Button";
 
 const EditProfile = ({ navigation, route }) => {
   const [user, setUser] = useContext(UserContext);
@@ -39,7 +43,7 @@ const EditProfile = ({ navigation, route }) => {
       .then(() => {
         Alert.alert("Información actualizada exitosamente.");
         setUser({
-          ... user,
+          ...user,
           age: age,
           email: email,
           name: name,
@@ -56,7 +60,7 @@ const EditProfile = ({ navigation, route }) => {
   return (
     <ScrollView>
       <View>
-        <View style={{ alignItems: "center", padding: 30 }}></View>
+        <View style={styles.container}></View>
 
         <View style={{ padding: 30 }}>
           <Text style={styles.Data}>Email</Text>
@@ -111,9 +115,7 @@ const EditProfile = ({ navigation, route }) => {
             onChangeText={(text) => setAge(text)}
           />
         </View>
-        <TouchableOpacity onPress={handleUpdate} style={styles.button}>
-          <Text style={styles.textButton}>Actualizar información</Text>
-        </TouchableOpacity>
+        <Button onPress={handleUpdate} textButton="Actualizar información" />
       </View>
     </ScrollView>
   );
@@ -121,46 +123,22 @@ const EditProfile = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "white",
-  },
-  Images: {
-    height: 125,
-    width: 125,
-    alignSelf: "center",
-  },
-  SubTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    textDecorationLine: "underline",
-    textAlign: "center",
-    margin: 20,
+    alignItems: "center",
+    padding: 30,
   },
   Data: {
     paddingLeft: 20,
-    fontSize: 16,
+    fontSize: hp("2.2%"),
     fontWeight: "bold",
   },
   input: {
-    height: 40,
+    width: wp("91%"),
+    height: hp("5.5%"),
     margin: 15,
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
     borderColor: "#713C6A",
-  },
-  button: {
-    backgroundColor: "#713C6A",
-    padding: 10,
-    alignSelf: "center",
-    borderRadius: 15,
-    margin: 30,
-    paddingLeft: 40,
-    paddingRight: 40,
-  },
-  textButton: {
-    color: "white",
-    fontSize: 20,
   },
 });
 
